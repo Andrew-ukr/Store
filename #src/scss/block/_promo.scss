@@ -1,0 +1,175 @@
+.promo {
+  position: relative;
+  height: 315px;
+}
+
+.container {
+  position: relative;
+}
+
+.promo-body {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  transform: translateY(-55px);
+  margin-left: -15px;
+  z-index: 1000;
+}
+
+.promo-item {
+  position: relative;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  padding: 40px 30px 30px;
+  height: 280px;
+
+  @media (min-width: 520px) {
+    flex: 1 1 50%;
+  }
+
+  @media (min-width: 992px) {
+    flex: 1 1 33.333333%;
+  }
+
+  &:nth-child(1) {
+    background-color: #ff6875;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 293px;
+      height: 249px;
+      background-image: url(../../img/promo/iphone6s.png);
+      background-repeat: no-repeat;
+      bottom: 0;
+      right: 0;
+    }
+
+    .promo-item__text {
+      width: 200px;
+
+      @media (min-width: 520px) {
+        width: 130px;
+      }
+
+      @media (min-width: 650px) {
+        width: 220px;
+      }
+
+      @media (min-width: 1150px) {
+        width: 280px;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: #f6f7f8;
+    display: flex;
+    align-items: flex-end;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 246px;
+      height: 154px;
+      background-image: url(../../img/promo/oculus.png);
+      background-repeat: no-repeat;
+      top: 40px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    .promo-item__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .promo-item__price,
+      .promo-item__title {
+        margin-bottom: 0;
+        color: #22262a;
+        ;
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    background-color: #c1c8ce;
+    padding: 40px 30px 30px;
+
+    @media (min-width: 520px) {
+      padding: 40px 100px 30px;
+    }
+
+    @media (min-width: 992px) {
+      padding: 40px 30px 30px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 182px;
+      height: 178px;
+      background-image: url(../../img/promo/go-pro.png);
+      background-repeat: no-repeat;
+      bottom: 20px;
+      right: 20px;
+
+      @media (min-width: 520px) {
+        right: 100px;
+      }
+
+      @media (min-width: 992px) {
+        right: 20px;
+      }
+    }
+
+    .promo-item__text {
+      width: 120px;
+
+      @media (min-width: 400px) {
+        width: 180px;
+      }
+
+      @media (min-width: 520px) {
+        width: 160px;
+      }
+
+      @media (min-width: 650px) {
+        width: 280px;
+      }
+
+      @media (min-width: 1000px) {
+        width: 120px;
+      }
+
+      @media (min-width: 1150px) {
+        width: 170px;
+      }
+    }
+  }
+}
+
+.promo-item__content {}
+
+.promo-item__title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.2px;
+  margin-bottom: 10px;
+}
+
+.promo-item__text {
+  line-height: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.promo-item__price {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 24px;
+  line-height: 43.2px;
+}

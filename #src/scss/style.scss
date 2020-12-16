@@ -1,0 +1,27 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+
+    @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+    }
+}
+
+@import "nullstyle.scss";
+@import "fonts.scss";
+
+// @import "../../node_modules/aos/dist/aos.css";
+// @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../../node_modules/swiper/swiper-bundle.css";
+
+@import "./block/_general.scss";
+@import "./block/_nav.scss";
+@import "./block/_header.scss";
+@import "./block/_footer.scss";
+@import "./block/_top-panel.scss";
+@import "./block/_head-banner.scss";
+@import "./block/_promo.scss";
+
+

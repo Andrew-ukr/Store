@@ -1,0 +1,33 @@
+.nav {}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+
+  @media (min-width: 686px) {
+    overflow: unset;
+    justify-content: center;
+  }
+}
+
+.nav-list__items {
+  &+& {
+    margin-left: 65px;
+  }
+}
+
+.nav-list__items-link {
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  line-height: 16.8px;
+  color: $baseColor;
+  text-transform: uppercase;
+  transition: .3s;
+
+  &:hover {
+    transition: .3s;
+    color: $hoverColor;
+  }
+}

@@ -1,0 +1,23 @@
+$baseColor:#22262a;
+$hoverColor:#33a0ff;
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'ProximaNova';
+	font-size: 14px;
+	color: $baseColor;
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.container {
+	max-width: 1205px;
+	width: 100%;
+	padding: 0 15px;
+	margin: 0 auto;
+}
