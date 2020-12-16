@@ -145,6 +145,10 @@ body.lock {
   margin: 0 auto;
 }
 
+.nav {
+  position: relative;
+}
+
 .nav-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -178,6 +182,80 @@ body.lock {
   -o-transition: .3s;
   transition: .3s;
   color: #33a0ff;
+}
+
+.hr {
+  border-top: 4px solid #f1f3f4;
+}
+
+.hover-menu {
+  display: none;
+  position: absolute;
+  width: 1075px;
+  height: auto;
+  background-color: #fff;
+  padding-top: 20px;
+}
+
+.nav-list__items:hover .hover-menu {
+  display: block;
+  z-index: 10;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.nav-list__items:hover .hover-menu::after {
+  content: url(../../img/icons/naw-arrow.svg);
+  position: absolute;
+  width: 17px;
+  height: 9px;
+  top: 10px;
+  left: 22.97%;
+}
+
+.hover-menu__category-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hover-menu__category {
+  width: 350px;
+  padding: 40px;
+}
+
+.hover-menu__category-title {
+  color: #c1c8ce;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.hover-menu__category-item-list {
+  width: 350px;
+  height: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.hover-menu__category-item {
+  width: 150px;
+}
+
+.hover-menu__category-item-link {
+  color: #262626;
+  line-height: 46px;
+  font-size: 14px;
+  text-align: left;
 }
 
 .header {

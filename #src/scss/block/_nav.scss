@@ -1,4 +1,6 @@
-.nav {}
+.nav {
+  position: relative;
+}
 
 .nav-list {
   display: flex;
@@ -30,4 +32,63 @@
     transition: .3s;
     color: $hoverColor;
   }
+}
+
+.hr {
+  border-top: 4px solid #f1f3f4;
+}
+
+.hover-menu {
+  display: none;
+  position: absolute;
+  width: 1075px;
+  height: auto;
+  background-color: #fff;
+  padding-top: 20px;
+
+  .nav-list__items:hover & {
+    display: block;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &::after {
+      content: url(../../img/icons/naw-arrow.svg);
+      position: absolute;
+      width: 17px;
+      height: 9px;
+      top: 10px;
+      left: 22.97%;
+    }
+  }
+}
+.hover-menu__category-wrapper{
+  display: flex;
+}
+.hover-menu__category{
+  width:350px;
+  padding: 40px;
+}
+
+.hover-menu__category-title {
+  color: #c1c8ce;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+}
+.hover-menu__category-item-list{
+  width:350px;
+  height: 230px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+}
+.hover-menu__category-item{
+  width:150px;
+}
+.hover-menu__category-item-link {
+  color: #262626;
+  line-height: 46px;
+  font-size: 14px;
+  text-align: left;
 }
