@@ -1,0 +1,122 @@
+.products {}
+
+.container {}
+
+.products__head-title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+  line-height: 36px;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.products__body {}
+
+.products__tabs-list {
+  display: flex;
+  justify-content: center;
+  transition: .3s;
+}
+
+.products__tabs-item {
+  position: relative;
+  margin-bottom: 35px;
+  cursor: pointer;
+  color: #262626;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  line-height: 16.8px;
+  transition: .3s;
+
+  &+& {
+    margin-left: 45px;
+  }
+  
+  @extend %hover;
+  @extend %hover-line;
+}
+
+.products__tabs-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 42px 20px;
+  width: 270px;
+  height: 349px;
+  border-radius: 4px;
+  border: 3px solid #f6f7f8;
+  margin-bottom: 30px;
+
+  &.hot::after {
+    @extend %cardAfter;
+    content: 'HOT';
+    background-color: #ff4858;
+  }
+
+  &.new::after {
+    @extend %cardAfter
+  }
+}
+
+.product-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  padding-bottom: 30px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #f6f7f8;
+}
+
+.product-card__title {
+  color: #262626;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  line-height: 16.8px;
+  margin-bottom: 27px;
+}
+
+.product-card__rate {
+  margin-bottom: 14px;
+}
+
+.product-card__price {
+  display: flex;
+  color: #ff4858;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  line-height: 16.8px;
+  text-align: center;
+}
+
+.product-card__price-new {}
+
+.product-card__price-old {
+  position: relative;
+  margin-left: 10px;
+  color: #c1c8ce;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border: 1px solid #5d656b;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+  }
+}

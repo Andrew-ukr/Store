@@ -21,3 +21,54 @@ body {
 	padding: 0 15px;
 	margin: 0 auto;
 }
+
+%cardAfter {
+	content: 'new';
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 40px;
+	height: 20px;
+	border-radius: 2px;
+	background-color: #33a0ff;
+	left: 10px;
+	top: 10px;
+
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+%hover {
+  &:hover,
+  &:focus,
+  &:active{
+    transition: .3s;
+    color: $hoverColor;
+  }
+}
+
+%hover-line{
+	&::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: transparent;
+    bottom: -7px;
+    left: 0;
+    transition: .3s;
+  }
+
+  &:hover {
+    transition: .3s;
+    color: $hoverColor;
+
+    &::after {
+      transition: .3s;
+      background-color: $hoverColor;
+    }
+  }
+}
