@@ -785,7 +785,7 @@ body.lock {
 .product-card__img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 160px;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
