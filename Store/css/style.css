@@ -212,7 +212,7 @@ body.lock {
   width: 17px;
   height: 9px;
   top: 10px;
-  left: 22.97%;
+  left: 20.6%;
 }
 
 .hover-menu__category-wrapper {
@@ -256,6 +256,18 @@ body.lock {
   line-height: 46px;
   font-size: 14px;
   text-align: left;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.hover-menu__category-item-link:hover,
+.hover-menu__category-item-link:focus,
+.hover-menu__category-item-link:active {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  color: #33a0ff;
 }
 
 .header {

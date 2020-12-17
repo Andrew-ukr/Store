@@ -58,7 +58,7 @@
       width: 17px;
       height: 9px;
       top: 10px;
-      left: 22.97%;
+      left: 20.6%;
     }
   }
 }
@@ -91,4 +91,11 @@
   line-height: 46px;
   font-size: 14px;
   text-align: left;
+  transition: .3s;
+  &:hover,
+  &:focus,
+  &:active{
+    transition: .3s;
+    color: $hoverColor;
+  }
 }
