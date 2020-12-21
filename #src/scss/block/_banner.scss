@@ -9,30 +9,61 @@
 
   &::after {
     position: absolute;
-    content: url(../../img/banner/iphone6s.png);
-    width: 553px;
-    height: 692px;
+    content: '';
+    width: 277px;
+    height: 346px;
     bottom: 0;
     right: 0;
+    background: url(../../img/banner/iphone6s.png) center / contain;
+
+    @media (min-width: 600px) {
+      width: 553px;
+      height: 692px;
+    }
   }
 }
 
 .banner__body {
   position: relative;
-  width: 390px;
+  max-width: 390px;
+  width: 100%;
   color: #ffffff;
-  padding: 145px 0 200px;
+  padding: 145px 0 300px;
+
+  @media (min-width: 600px) {
+    padding: 145px 0 500px;
+  }
+
+  @media (min-width: 640px) {
+    padding: 145px 0 400px;
+  }
+
+  @media (min-width: 700px) {
+    padding: 145px 0 300px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 145px 0 200px;
+  }
 
   .banner__title {
-    font-size: 66px;
+    font-size: 50px;
     font-weight: 300;
     margin-bottom: 26px;
+
+    @media (min-width: 450px) {
+      font-size: 66px;
+    }
   }
 
   .banner__text {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 43.2px;
     margin-bottom: 49px;
+
+    @media (min-width: 450px) {
+      font-size: 24px;
+    }
   }
 
   .banner__link {
@@ -49,7 +80,6 @@
       bottom: -7px;
       left: 0;
       transition: .3s;
-
     }
 
     &:hover {
