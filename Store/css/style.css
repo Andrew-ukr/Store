@@ -945,6 +945,7 @@ body.lock {
 .banner {
   position: relative;
   background-color: #2e90e5;
+  margin-bottom: 98px;
 }
 
 .banner__body-wrapper {
@@ -1012,6 +1013,39 @@ body.lock {
   -o-transition: .3s;
   transition: .3s;
   background-color: #33a0ff;
+}
+
+.service-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+}
+
+.service__item {
+  text-align: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 330px;
+          flex: 0 1 330px;
+}
+
+.service__item-img {
+  margin-bottom: 35px;
+}
+
+.service__item-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 43.2px;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.service__item-text {
+  line-height: 24px;
 }
 
 @media (min-width: 400px) {

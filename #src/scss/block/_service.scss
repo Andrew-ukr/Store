@@ -1,0 +1,28 @@
+.service {}
+
+.service-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.service__item {
+  text-align: center;
+  flex: 0 1 330px;
+}
+
+.service__item-img {
+  margin-bottom: 35px;
+}
+
+.service__item-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 43.2px;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.service__item-text {
+  line-height: 24px;
+}
