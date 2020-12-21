@@ -710,6 +710,10 @@ body.lock {
   line-height: 43.2px;
 }
 
+.products {
+  margin-bottom: 150px;
+}
+
 .products__head-title {
   font-size: 30px;
   font-weight: 600;
@@ -936,6 +940,78 @@ body.lock {
   text-align: left;
   text-transform: uppercase;
   border-bottom: 3px solid #33a0ff;
+}
+
+.banner {
+  position: relative;
+  background-color: #2e90e5;
+}
+
+.banner__body-wrapper {
+  position: relative;
+}
+
+.banner__body-wrapper::after {
+  position: absolute;
+  content: url(../../img/banner/iphone6s.png);
+  width: 553px;
+  height: 692px;
+  bottom: 0;
+  right: 0;
+}
+
+.banner__body {
+  position: relative;
+  width: 390px;
+  color: #ffffff;
+  padding: 145px 0 200px;
+}
+
+.banner__body .banner__title {
+  font-size: 66px;
+  font-weight: 300;
+  margin-bottom: 26px;
+}
+
+.banner__body .banner__text {
+  font-size: 24px;
+  line-height: 43.2px;
+  margin-bottom: 49px;
+}
+
+.banner__body .banner__link {
+  position: relative;
+  color: #ffffff;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.banner__body .banner__link::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #ffffff;
+  bottom: -7px;
+  left: 0;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.banner__body .banner__link:hover {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  color: #33a0ff;
+}
+
+.banner__body .banner__link:hover::after {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  background-color: #33a0ff;
 }
 
 @media (min-width: 400px) {
