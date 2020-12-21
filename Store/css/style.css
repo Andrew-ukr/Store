@@ -755,6 +755,7 @@ body.lock {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-bottom: 90px;
 }
 
 .product-card {
@@ -837,6 +838,18 @@ body.lock {
           transform: translateY(-50%);
   left: 0;
   right: 0;
+}
+
+.more-btn {
+  display: block;
+  background-color: transparent;
+  padding: 4px 0;
+  margin: 0 auto;
+  color: #33a0ff;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 3px solid #33a0ff;
 }
 
 @media (min-width: 400px) {
