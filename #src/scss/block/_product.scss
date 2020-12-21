@@ -37,6 +37,24 @@
     margin-left: 45px;
   }
 
+
+  &.active {
+    transition: .3s;
+    color: $hoverColor;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: transparent;
+      bottom: -7px;
+      left: 0;
+      transition: .3s;
+      background-color: $hoverColor;
+    }
+  }
+
   @extend %hover;
   @extend %hover-line;
 }

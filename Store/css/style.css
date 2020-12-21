@@ -754,6 +754,27 @@ body.lock {
   margin-left: 45px;
 }
 
+.products__tabs-item.active {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  color: #33a0ff;
+}
+
+.products__tabs-item.active::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: transparent;
+  bottom: -7px;
+  left: 0;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  background-color: #33a0ff;
+}
+
 .products__tabs-content {
   display: -webkit-box;
   display: -ms-flexbox;
