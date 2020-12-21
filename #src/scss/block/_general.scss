@@ -62,7 +62,9 @@ body {
     transition: .3s;
   }
 
-  &:hover {
+	&:hover,
+	&:active,
+	&:focus{
     transition: .3s;
     color: $hoverColor;
 
