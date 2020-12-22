@@ -999,10 +999,43 @@
 				<button class="search-input__btn" type="submit">Search</button>
 			</div>
 		</div>
+
 	</main>
 
 	@@include('_footer.html')
 
+	<div class="modal">
+		<div class="modal-container">
+			<div class="modal__close-btn">
+				<img src="img/modal/close-btn.svg" alt="">
+			</div>
+			<div class="modal__body">
+				<div class="modal__col">
+					<div class="modal__title">Newsletter</div>
+					<div class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+						incididunt ut labore et dolore magna aliqua</div>
+					<div class="modal__input-wrapper">
+						<input class="modal__input" type="email" name="email" id="#" placeholder="email">
+						<button class="modal__input-btn">Subscribe</button>
+					</div>
+					<div class="modal__checkbox">
+						<label class="modal__checkbox-label" for="checkbox1" >
+							<input class="checkbox" type="checkbox" name="checkbox" id="checkbox1">
+							<span class="modal__checkbox-text">
+								Don’t show this popup again
+							</span>
+							<span class="fake"></span>
+						</label>
+					</div>
+				</div>
+				<div class="modal__col">
+					<div class="modal__img-wrapper">
+						<img class="modal__img" src="img/modal/modal-img.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="./js/script.js"></script>
 
 </body>

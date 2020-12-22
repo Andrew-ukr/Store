@@ -80,12 +80,16 @@
 .store-bar__search {
   margin-left: 57px;
   position: relative;
-
+display: none;
   &::before {
     content: url(../.././img/icons/search-icon.svg);
     position: absolute;
     width: 16px;
     height: 16px;
+  }
+
+  @media (min-width: 550px) {
+    display: block;
   }
 }
 
