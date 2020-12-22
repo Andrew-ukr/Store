@@ -7,11 +7,20 @@
 }
 .top-panel {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+
+  @media (min-width: 550px) {
+    justify-content: space-between;
+  }
 }
 
-.top-panel__info {}
+.top-panel__info {
+  display: none;
+  @media (min-width: 550px) {
+    display: block;
+  }
+}
 
 .top-panel__select {
   letter-spacing: 0.35px;

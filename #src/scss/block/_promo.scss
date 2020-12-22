@@ -1,6 +1,15 @@
 .promo {
   position: relative;
   height: 315px;
+  margin-bottom: 560px;
+
+  @media (min-width: 520px) {
+    margin-bottom: 280px;
+
+  }
+  @media (min-width: 1000px) {
+    margin-bottom: unset;
+  }
 }
 
 .container {

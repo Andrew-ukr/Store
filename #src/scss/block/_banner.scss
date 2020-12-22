@@ -1,7 +1,11 @@
 .banner {
   position: relative;
   background-color: #2e90e5;
-  margin-bottom: 98px;
+  margin-bottom: 50px;
+
+  @media (min-width: 992px) {
+    margin-bottom: 98px;
+  }
 }
 
 .banner__body-wrapper {
@@ -28,14 +32,14 @@
   max-width: 390px;
   width: 100%;
   color: #ffffff;
-  padding: 145px 0 300px;
+  padding: 45px 0 300px;
 
   @media (min-width: 600px) {
-    padding: 145px 0 500px;
+    padding: 45px 0 500px;
   }
 
   @media (min-width: 640px) {
-    padding: 145px 0 400px;
+    padding: 45px 0 400px;
   }
 
   @media (min-width: 700px) {
@@ -47,17 +51,18 @@
   }
 
   .banner__title {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 300;
     margin-bottom: 26px;
 
     @media (min-width: 450px) {
       font-size: 66px;
+      font-size: 50px;
     }
   }
 
   .banner__text {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 43.2px;
     margin-bottom: 49px;
 

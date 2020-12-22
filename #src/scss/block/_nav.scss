@@ -12,6 +12,9 @@
     overflow: unset;
     justify-content: center;
   }
+  &::-webkit-scrollbar{
+    width: 0;
+  }
 }
 
 .nav-list__items {

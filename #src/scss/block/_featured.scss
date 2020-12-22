@@ -1,5 +1,8 @@
 .featured {
-  margin-bottom: 140px;
+  margin-bottom: 50px;
+  @media (min-width: 992px) {
+    margin-bottom: 140px;
+  }
 }
 
 .featured-body__title {
@@ -27,15 +30,20 @@
   &::after {
     content: '';
     position: absolute;
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     border: 2px solid #f6f7f8;
     border-radius: 4px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 0
+    z-index: 0;
+    @media (min-width: 450px) {
+      width: 130px;
+      height: 130px;
+    }
   }
+
 }
 
 .featured-img {
