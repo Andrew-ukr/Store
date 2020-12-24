@@ -156,7 +156,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  
+
   function checkVisibleBlocks() {
     productCard.forEach(elem => {
       if (elem.classList.contains('active')) {
@@ -169,19 +169,20 @@ window.addEventListener("DOMContentLoaded", () => {
   function hideBlocks() {
     const productCardActive = document.querySelectorAll('.product-card.active');
     if (cardsIndex < currentVisibleCardsCounter) {
-      moreCardBtn.style.visibility = 'visible';
+      moreCardBtn.style.display = 'block';
       productCardActive.forEach((item, i) => {
         if (i + 1 > cardsIndex) {
           item.classList.remove('active');
         }
       });
     } else {
-      moreCardBtn.style.visibility = 'hidden';
+      moreCardBtn.style.display = 'none';
+
     }
   }
 
   moreCardBtn.addEventListener('click', () => {
-    moreCardBtn.style.visibility = 'hidden';
+    moreCardBtn.style.display = 'none';
     showActiveBlocks();
   });
 
