@@ -927,9 +927,7 @@ body.lock {
 
 .product-card {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -947,6 +945,12 @@ body.lock {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
+}
+
+.product-card.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .product-card:hover,
