@@ -1,5 +1,5 @@
 .products {
-  margin-bottom: 70px;
+  margin-bottom: 20px;
 
   @media (min-width: 550px) {
     margin-bottom: 150px;
@@ -108,7 +108,7 @@
   margin-right: 5px;
 
   &.more-btn {
-    display: block;
+    display: flex;
     border: 3px solid #f6f7f8;
 
     @media (min-width: 550px) {
@@ -164,8 +164,6 @@
   @media (min-width: 992px) {
     width: 23%;
   }
-
-
 
   &.hot::after {
     @extend %cardAfter;
@@ -273,8 +271,8 @@
   }
 }
 
-.more-btn {
-  display: none;
+button.more-btn {
+  display: block;
   background-color: transparent;
   padding: 4px 0;
   margin: 0 auto;
@@ -283,8 +281,9 @@
   text-align: left;
   text-transform: uppercase;
   border-bottom: 3px solid #33a0ff;
+  visibility: hidden;
 
   @media (min-width: 550px) {
-    display: block;
+    visibility: visible;
   }
 }

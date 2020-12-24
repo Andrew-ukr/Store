@@ -844,7 +844,7 @@ body.lock {
 }
 
 .products {
-  margin-bottom: 70px;
+  margin-bottom: 20px;
 }
 
 .products__head-title {
@@ -952,7 +952,9 @@ body.lock {
 }
 
 .product-card.more-btn {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border: 3px solid #f6f7f8;
 }
 
@@ -1108,8 +1110,8 @@ body.lock {
   fill: #fff;
 }
 
-.more-btn {
-  display: none;
+button.more-btn {
+  display: block;
   background-color: transparent;
   padding: 4px 0;
   margin: 0 auto;
@@ -1118,6 +1120,7 @@ body.lock {
   text-align: left;
   text-transform: uppercase;
   border-bottom: 3px solid #33a0ff;
+  visibility: hidden;
 }
 
 .banner {
@@ -1845,8 +1848,8 @@ input.checkbox:focus ~ .fake::before {
     opacity: 1;
   }
 
-  .more-btn {
-    display: block;
+  button.more-btn {
+    visibility: visible;
   }
 }
 

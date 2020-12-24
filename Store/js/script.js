@@ -122,6 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const productsTabsItem = document.querySelectorAll('.products__tabs-item');
   const productCard = document.querySelectorAll('.product-card');
   const moreCardBtn = document.querySelector('button.more-btn');
+  const moreCardBtnMob = document.querySelector('div.more-btn');
   let currentVisibleCardsCounter = 0;
   let totalCardsCounter = 0;
   let cardsIndex = 8;
@@ -170,6 +171,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const productCardActive = document.querySelectorAll('.product-card.active');
     if (cardsIndex < currentVisibleCardsCounter) {
       moreCardBtn.style.display = 'block';
+      moreCardBtnMob.style.display = 'flex';
       productCardActive.forEach((item, i) => {
         if (i + 1 > cardsIndex) {
           item.classList.remove('active');
@@ -182,6 +184,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   moreCardBtn.addEventListener('click', () => {
     moreCardBtn.style.display = 'none';
+    showActiveBlocks();
+  });
+
+  moreCardBtnMob.addEventListener('click', () => {
+    moreCardBtnMob.style.display = 'none';
     showActiveBlocks();
   });
 
