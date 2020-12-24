@@ -1501,6 +1501,15 @@ body.lock {
 
 .modal-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal__close-btn {
@@ -1526,15 +1535,26 @@ body.lock {
       -ms-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
   cursor: pointer;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
 }
 
 .modal__body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* Style for "base" */
-  width: 960px;
-  height: 480px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
   -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
           box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
@@ -1547,6 +1567,10 @@ body.lock {
 
 .modal__col:first-child {
   padding: 63px 70px 32px;
+}
+
+.modal__col:last-child {
+  display: none;
 }
 
 .modal__title {
@@ -1576,7 +1600,7 @@ body.lock {
   height: 60px;
   border-radius: 4px;
   border: 2px solid #f1f3f4;
-  padding: 20px 170px 20px 20px;
+  padding: 20px 100px 20px 20px;
 }
 
 .modal__input:hover,
@@ -1591,8 +1615,7 @@ body.lock {
 
 .modal__input-btn {
   position: absolute;
-  /* Style for "Rectangle" */
-  width: 152px;
+  width: 80px;
   height: 100%;
   background-color: #33a0ff;
   border-radius: 0 4px 4px 0;
@@ -2025,6 +2048,36 @@ input.checkbox:focus ~ .fake::before {
 
   .search {
     margin-bottom: 140px;
+  }
+
+  .modal__close-btn:hover,
+  .modal__close-btn:focus,
+  .modal__close-btn:active {
+    background-color: #394046;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+  }
+
+  .modal__body {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 960px;
+    height: 480px;
+  }
+
+  .modal__col:last-child {
+    display: block;
+  }
+
+  .modal__input {
+    padding: 20px 170px 20px 20px;
+  }
+
+  .modal__input-btn {
+    width: 152px;
   }
 }
 

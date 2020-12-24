@@ -57,7 +57,6 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       moreCardBtn.style.display = 'none';
-
     }
   }
 
