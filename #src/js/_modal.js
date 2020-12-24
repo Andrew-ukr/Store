@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('show-popup')) {
       setTimeout(() => {
         openWindow();
-      }, 1000);
+      }, 15000);
     }
 
     closeWindow();
