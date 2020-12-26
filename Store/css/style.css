@@ -1928,6 +1928,7 @@ input.checkbox:focus ~ .fake::before {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .goods__color-item::before {

@@ -153,19 +153,20 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  cursor: pointer;
 
-&::before{
-  position: absolute;
-  content: "";
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  border: 5px solid #ffffff;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: .3s;
-}
+  &::before {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 5px solid #ffffff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+  }
 
   &+& {
     margin-left: 20px;
@@ -188,7 +189,7 @@
   }
 
   &.active {
-    &::before{
+    &::before {
       width: 24px;
       height: 24px;
       transition: .3s;

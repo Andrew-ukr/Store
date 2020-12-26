@@ -24,7 +24,6 @@ window.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-
   let goodsDownHeadSwiper = new Swiper('.goods__down-slider-container', {
     spaceBetween: 10,
     slidesPerView: 4,
