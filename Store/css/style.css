@@ -1924,10 +1924,24 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .goods__color-item {
-  width: 20px;
-  height: 20px;
+  position: relative;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  cursor: pointer;
+}
+
+.goods__color-item::before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 5px solid #ffffff;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -1953,27 +1967,9 @@ input.checkbox:focus ~ .fake::before {
   background-color: #fff600;
 }
 
-.goods__color-item.active {
-  position: relative;
-  width: 26px;
-  height: 26px;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
-}
-
-.goods__color-item.active::after {
-  position: absolute;
-  content: "";
-  border-radius: 50%;
-  width: 21px;
-  height: 21px;
-  border: 3px solid #ffffff;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.goods__color-item.active::before {
+  width: 24px;
+  height: 24px;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -2432,8 +2428,11 @@ input.checkbox:focus ~ .fake::before {
           justify-content: space-between;
 }
 
-.related__item .product-card {
-  width: 100%;
+.related__item.product-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 24%;
 }
 
 @media (min-width: 370px) {

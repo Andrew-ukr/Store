@@ -17,3 +17,9 @@
 
 @@include('./_tabs.js');
 // tabs
+
+@@include('./_quantity.js');
+// quantity
+
+@@include('./_selectColor.js');
+// select color
