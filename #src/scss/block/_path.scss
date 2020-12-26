@@ -1,0 +1,24 @@
+.path {
+  padding: 17px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(246, 247, 248, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  line-height: 16.8px;
+  margin-bottom: 55px;
+}
+
+.path__link {
+  color: #33a0ff;
+}
+
+.path__slash {
+  color: #c1c8ce;
+  margin: 0 10px;
+}
+
+.path__current {
+
+}

@@ -14,3 +14,6 @@
 
 @@include('./_filter.js');
 // BEST SELLER filter
+
+@@include('./_tabs.js');
+// tabs

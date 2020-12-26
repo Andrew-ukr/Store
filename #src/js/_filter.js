@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let totalCardsCounter = 0;
   let cardsIndex = 8;
   let currentDataFilter = 'all';
+  let innerWidth = window.innerWidth;
 
   function init() {
 
@@ -48,30 +49,49 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function hideBlocks() {
-    const productCardActive = document.querySelectorAll('.product-card.active');
-    if (cardsIndex < currentVisibleCardsCounter) {
-      moreCardBtn.style.display = 'block';
-      moreCardBtnMob.style.display = 'flex';
-      productCardActive.forEach((item, i) => {
-        if (i + 1 > cardsIndex) {
-          item.classList.remove('active');
+    try {
+      const productCardActive = document.querySelectorAll('.product-card.active');
+
+      if (cardsIndex < currentVisibleCardsCounter) {
+        if (innerWidth > 550) {
+          moreCardBtn.style.display = 'block';
+        } else {
+          moreCardBtnMob.style.display = 'flex';
         }
-      });
-    } else {
-      moreCardBtn.style.display = 'none';
+
+        productCardActive.forEach((item, i) => {
+          if (i + 1 > cardsIndex) {
+            item.classList.remove('active');
+          }
+        });
+      } else {
+        moreCardBtn.style.display = 'none';
+        moreCardBtnMob.style.display = 'none';
+      }
+    } catch (error) {
+
     }
   }
 
-  moreCardBtn.addEventListener('click', () => {
-    moreCardBtn.style.display = 'none';
-    showActiveBlocks();
-  });
+  try {
+    moreCardBtn.addEventListener('click', () => {
+      moreCardBtnMob.style.display = 'none';
+      moreCardBtn.style.display = 'none';
+      showActiveBlocks();
+    });
+    
+    moreCardBtnMob.addEventListener('click', () => {
+      moreCardBtn.style.display = 'none';
+      moreCardBtnMob.style.display = 'none';
+      showActiveBlocks();
+    });
+  } catch (error) {
 
-  moreCardBtnMob.addEventListener('click', () => {
-    moreCardBtnMob.style.display = 'none';
-    showActiveBlocks();
+  }
+
+  window.addEventListener('resize', () => {
+    innerWidth = window.innerWidth;
   });
 
   init();
-
 });

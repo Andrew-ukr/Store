@@ -33,8 +33,8 @@ testWebP(function (support) {
 
 //------------------------------------------------------------------------------------
 
-window.addEventListener('DOMContentLoaded', ()=>{
-  var mySwiper = new Swiper('.swiper-container', {
+window.addEventListener('DOMContentLoaded', () => {
+  let mySwiper = new Swiper('.carousel-container', {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -44,11 +44,38 @@ window.addEventListener('DOMContentLoaded', ()=>{
     autoplay: {
       delay: 5000,
     },
-    // effect: 'fade',
-    // fadeEffect: {
-    //   crossFade: true
-    // },
   });
+
+  let goodsSwiper = new Swiper('.goods-aside__slider', {
+    speed: 500,
+    loop: true,
+
+    autoplay: {
+      delay: 3000,
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });
+
+
+  let goodsDownHeadSwiper = new Swiper('.goods__down-slider-container', {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    speed: 500,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+  });
+
+  let goodsHeadSwiper = new Swiper('.goods__slider-container', {
+    speed: 500,
+    thumbs: {
+      swiper: goodsDownHeadSwiper
+    }
+  });
+
 });;
 // slider
 
@@ -127,6 +154,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let totalCardsCounter = 0;
   let cardsIndex = 8;
   let currentDataFilter = 'all';
+  let innerWidth = window.innerWidth;
 
   function init() {
 
@@ -168,31 +196,78 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function hideBlocks() {
-    const productCardActive = document.querySelectorAll('.product-card.active');
-    if (cardsIndex < currentVisibleCardsCounter) {
-      moreCardBtn.style.display = 'block';
-      moreCardBtnMob.style.display = 'flex';
-      productCardActive.forEach((item, i) => {
-        if (i + 1 > cardsIndex) {
-          item.classList.remove('active');
+    try {
+      const productCardActive = document.querySelectorAll('.product-card.active');
+
+      if (cardsIndex < currentVisibleCardsCounter) {
+        if (innerWidth > 550) {
+          moreCardBtn.style.display = 'block';
+        } else {
+          moreCardBtnMob.style.display = 'flex';
         }
-      });
-    } else {
-      moreCardBtn.style.display = 'none';
+
+        productCardActive.forEach((item, i) => {
+          if (i + 1 > cardsIndex) {
+            item.classList.remove('active');
+          }
+        });
+      } else {
+        moreCardBtn.style.display = 'none';
+        moreCardBtnMob.style.display = 'none';
+      }
+    } catch (error) {
+
     }
   }
 
-  moreCardBtn.addEventListener('click', () => {
-    moreCardBtn.style.display = 'none';
-    showActiveBlocks();
-  });
+  try {
+    moreCardBtn.addEventListener('click', () => {
+      moreCardBtnMob.style.display = 'none';
+      moreCardBtn.style.display = 'none';
+      showActiveBlocks();
+    });
+    
+    moreCardBtnMob.addEventListener('click', () => {
+      moreCardBtn.style.display = 'none';
+      moreCardBtnMob.style.display = 'none';
+      showActiveBlocks();
+    });
+  } catch (error) {
 
-  moreCardBtnMob.addEventListener('click', () => {
-    moreCardBtnMob.style.display = 'none';
-    showActiveBlocks();
+  }
+
+  window.addEventListener('resize', () => {
+    innerWidth = window.innerWidth;
   });
 
   init();
-
 });;
 // BEST SELLER filter
+
+window.addEventListener('DOMContentLoaded', () => {
+  const tabItem = document.querySelectorAll('.goods__tab-list-item');
+  const tabContentItem = document.querySelectorAll('.goods__tab-content-item');
+
+  function clearActiveClass() {
+    tabItem.forEach(elem => {
+      elem.classList.remove('active');
+    });
+  }
+
+
+  tabItem.forEach((elem, i) => {
+    elem.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('goods__tab-list-item')) {
+        clearActiveClass();
+        e.target.classList.add('active');
+
+        tabContentItem.forEach(item => {
+          item.classList.remove('active');
+          tabContentItem[i].classList.add('active');
+        });
+      }
+    });
+  });
+
+});;
+// tabs

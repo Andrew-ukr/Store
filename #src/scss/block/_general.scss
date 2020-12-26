@@ -42,35 +42,75 @@ body {
 }
 
 %hover {
-  &:hover,
-  &:focus,
-  &:active{
-    transition: .3s;
-    color: $hoverColor;
-  }
+
+	&:hover,
+	&:focus,
+	&:active {
+		transition: .3s;
+		color: $hoverColor;
+	}
 }
 
-%hover-line{
+%hover-line {
 	&::after {
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: transparent;
-    bottom: -7px;
-    left: 0;
-    transition: .3s;
-  }
+		content: '';
+		position: absolute;
+		height: 3px;
+		width: 100%;
+		background-color: transparent;
+		bottom: -7px;
+		left: 0;
+		transition: .3s;
+	}
 
 	&:hover,
 	&:active,
-	&:focus{
-    transition: .3s;
-    color: $hoverColor;
+	&:focus {
+		transition: .3s;
+		color: $hoverColor;
 
-    &::after {
-      transition: .3s;
-      background-color: $hoverColor;
-    }
-  }
+		&::after {
+			transition: .3s;
+			background-color: $hoverColor;
+		}
+	}
+}
+
+.price-new {
+	color: #ff4858;
+	font-size: 24px;
+	letter-spacing: 0.6px;
+}
+
+.price-old {
+	position: relative;
+	color: #c1c8ce;
+	font-size: 24px;
+	letter-spacing: 0.6px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		border: 1px solid #5d656b;
+		width: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		right: 0;
+	}
+}
+
+.hr-thin {
+	width: 100%;
+	height: 2px;
+	background-color: #f6f7f8;
+	margin: 20px 0;
+}
+
+.goods-title {
+	width: 130px;
+	color: #262626;
+	font-weight: 700;
+	letter-spacing: 0.35px;
+	line-height: 16.8px;
 }

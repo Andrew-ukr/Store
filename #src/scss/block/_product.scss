@@ -137,6 +137,7 @@
 
   &.active {
     display: flex;
+    min-width: 0;
   }
 
   @media (min-width: 550px) {

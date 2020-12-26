@@ -1,0 +1,15 @@
+.related {
+  margin-bottom: 160px;
+}
+.related__title {
+  margin-bottom: 58px;
+}
+.related__body {
+  display: flex;
+  justify-content: space-between;
+}
+.related__item {
+  .product-card{
+    width: 100%;
+  }
+}
