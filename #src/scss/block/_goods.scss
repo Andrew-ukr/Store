@@ -61,6 +61,11 @@
 .swiper-slide__img-wrapper {
   width: 100%;
   height: 370px;
+
+  .goods__down-slider-container.swiper-container & {
+    height: 86px;
+
+  }
 }
 
 .swiper-slide__img {
@@ -178,6 +183,10 @@
 
   &.blue {
     background-color: #006cff;
+  }
+
+  &.green {
+    background-color: rgb(51, 153, 0);
   }
 
   &.black {

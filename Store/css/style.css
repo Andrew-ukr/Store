@@ -1838,6 +1838,10 @@ input.checkbox:focus ~ .fake::before {
   height: 370px;
 }
 
+.goods__down-slider-container.swiper-container .swiper-slide__img-wrapper {
+  height: 86px;
+}
+
 .swiper-slide__img {
   display: block;
   width: 100%;
@@ -1958,6 +1962,10 @@ input.checkbox:focus ~ .fake::before {
 
 .goods__color-item.blue {
   background-color: #006cff;
+}
+
+.goods__color-item.green {
+  background-color: #339900;
 }
 
 .goods__color-item.black {
