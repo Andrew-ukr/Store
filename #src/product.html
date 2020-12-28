@@ -20,7 +20,7 @@
 			<span class="path__slash">/</span>
 			<a class="path__link" href="#">Accesories</a>
 			<span class="path__slash">/</span>
-			<span class="path__current"></span>Apple iPhone 11</span>
+			<span class="path__current">Apple iPhone 11</span>
 		</div>
 
 		<div class="goods">
@@ -28,7 +28,7 @@
 			<div class="container">
 				<div class="goods-inner">
 					<div class="goods__body">
-						<div class="goods__row">
+						<div class="goods__row" data-cart="data">
 							<div class="goods__col">
 								<div class="goods__slider-container swiper-container">
 									<div class="swiper-wrapper">
@@ -110,12 +110,12 @@
 											</div>
 										</div>
 									</div>
-							</div>
+								</div>
 
 							</div>
 
 							<div class="goods__col">
-								<div class="goods__title">
+								<div class="goods__title" data-cart="title" data-id="1">
 									Apple iPhone 11
 								</div>
 								<div class="goods__rate">
@@ -131,7 +131,7 @@
 								</div>
 								<hr class="hr-thin">
 								<div class="goods__price">
-									<div class="goods__price-new price-new">$499</div>
+									<div class="goods__price-new price-new" data-cart="price">$499</div>
 									<div class="goods__price-old price-old">$599</div>
 								</div>
 								<div class="goods__availability">
@@ -150,17 +150,17 @@
 								<div class="goods__color">
 									<div class="goods__color-title goods-title">Select Color:</div>
 									<div class="goods__color-block">
-										<div class="goods__color-item red active" title="red"></div>
-										<div class="goods__color-item green" title="green"></div>
-										<div class="goods__color-item black" title="black"></div>
-										<div class="goods__color-item yellow" title="yellow"></div>
+										<div class="goods__color-item red active" title="red" data-cart="color"></div>
+										<div class="goods__color-item green" title="green" data-cart="color"></div>
+										<div class="goods__color-item black" title="black" data-cart="color"></div>
+										<div class="goods__color-item yellow" title="yellow" data-cart="color"></div>
 									</div>
 								</div>
 								<div class="goods__size-body">
 									<div class="goods__size-title goods-title">Memory size:</div>
 
 									<div class="goods__size-wrapper">
-										<select class="goods__size" name="size" id="#">
+										<select class="goods__size" name="size" id="#" data-cart="size">
 											<option class="goods__size-item" value="64">64 GB</option>
 											<option class="goods__size-item" value="128">128 GB</option>
 											<option class="goods__size-item" value="256">256 GB</option>
@@ -171,16 +171,14 @@
 								<div class="goods__btns">
 									<div class="goods__quantity-body">
 										<div class="goods__quantity-minus">-</div>
-										<div class="goods__quantity-number">1</div>
+										<div class="goods__quantity-number" data-cart="number">1</div>
 										<div class="goods__quantity-plus">+</div>
 									</div>
 									<div class="goods__cart-btn-body">
-										<button class="goods__cart-btn">
-											<img class="goods__cart-btn-img" src="img/goods/cart.svg" alt="">
-											<span class="goods__cart-btn-text">Add To Cart</span>
+										<button class="goods__cart-btn" data-cart="add">
+											Add To Cart
 										</button>
 										<button class="goods__favorit-btn">
-											<img class="goods__favorit-btn-img" src="img/goods/hearts.svg" alt="">
 										</button>
 
 									</div>
@@ -467,7 +465,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="related__item product-card">
 						<img class="product-card__img" src="./img/card/macbook1.png" alt="">
 						<div class="product-card__title">Apple Macbook Pro</div>

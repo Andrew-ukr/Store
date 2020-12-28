@@ -26,3 +26,6 @@
 
 @@include('./_select.js');
 // select color
+
+@@include('./_cart.js');
+// select color

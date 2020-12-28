@@ -2,6 +2,7 @@
   padding: 15px 0 35px;
 }
 .top-panel__wrapper{
+  position: relative;
   border-bottom: 2px solid #fafafb;
   padding: 15px 0;
 }
@@ -56,12 +57,23 @@
 .store-bar__item-img {
   display: block;
   margin-right: 10px;
+  pointer-events: none;
 }
 
 .store-bar__item-name {}
 
 .store-bar__cart {
+  position: relative;
   display: flex;
+  cursor: pointer;
+
+  &:hover,
+	&:focus,
+	&:active {
+    .cart-hover{
+      display: block;
+    }
+	}
 }
 
 .store-bar__item-number {
@@ -75,7 +87,9 @@
   margin-left: 10px;
 }
 
-.store-bar__item-total-price {}
+.store-bar__item-total-price {
+  pointer-events: none;
+}
 
 .store-bar__search {
   margin-left: 57px;

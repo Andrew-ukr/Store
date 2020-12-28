@@ -316,6 +316,7 @@
 }
 
 .goods__cart-btn {
+  position: relative;
   width: 150px;
   height: 46px;
   border-radius: 4px;
@@ -326,6 +327,15 @@
   font-weight: 600;
   letter-spacing: 0.35px;
   line-height: 16.8px;
+  padding: 0 20px 0 50px;
+
+  &::after {
+    content: url(.././img/goods/cart.svg);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   &:hover,
   &:active,
@@ -335,11 +345,8 @@
   }
 }
 
-.goods__cart-btn-img {}
-
-.goods__cart-btn-text {}
-
 .goods__favorit-btn {
+  position: relative;
   width: 46px;
   height: 46px;
   border-radius: 4px;
@@ -357,6 +364,14 @@
   &:focus {
     transition: .3s;
     background-color: rgba(51, 160, 255, 0.2);
+  }
+
+  &::after {
+    content: url(.././img/goods/hearts.svg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
 }
 
