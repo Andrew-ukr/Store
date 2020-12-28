@@ -1823,10 +1823,14 @@ input.checkbox:focus ~ .fake::before {
 
 .goods__down-slider-container .swiper-slide {
   width: 86px;
+  border: 2px solid #006aff00;
 }
 
 .goods__down-slider-container .swiper-slide.swiper-slide-thumb-active {
   border: 2px solid #006cff;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
 }
 
 .goods__down-slider-container .swiper-slide .swiper-slide__img-wrapper {

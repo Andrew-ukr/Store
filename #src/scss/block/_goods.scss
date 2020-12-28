@@ -40,9 +40,11 @@
 .goods__down-slider-container {
   .swiper-slide {
     width: 86px;
+    border: 2px solid #006aff00;
 
     &.swiper-slide-thumb-active {
       border: 2px solid #006cff;
+      transition: .3s;
     }
 
     .swiper-slide__img-wrapper {

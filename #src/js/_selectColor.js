@@ -17,7 +17,6 @@ window.addEventListener('DOMContentLoaded', () => {
       sliderImg.forEach(item => {
         let sliderImgPath = item.getAttribute('src').replace(previousColorClass, currentColorClass);
         item.setAttribute('src', sliderImgPath);
-        console.log(item.previousElementSibling.getAttribute('srcset'));
         let sliderImgPathWebp = item.previousElementSibling.getAttribute('srcset').replace(previousColorClass, currentColorClass);
         item.previousElementSibling.setAttribute('srcset', sliderImgPathWebp);
       });

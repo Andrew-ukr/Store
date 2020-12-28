@@ -23,3 +23,6 @@
 
 @@include('./_selectColor.js');
 // select color
+
+@@include('./_select.js');
+// select color
