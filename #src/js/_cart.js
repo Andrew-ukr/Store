@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const cartData = document.querySelectorAll(`[data-cart="data"]`);
   const numberOfGoods = document.querySelector(`[data-cart="numberOfGoods"]`);
   const hoverCart = document.querySelector(`[data-cart="hover-cart"]`);
+  const totalSum = document.querySelectorAll(`[data-cart="total"]`);
   let goods = {};
   let cart = [];
   if (localStorage.getItem('cartItems')) {
@@ -47,6 +48,16 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function totalsum() {
+    let total = 0;
+    cart.forEach(item => {
+      total += +item.price.replace(/\D/, "") * +item.number;
+    });
+    totalSum.forEach(item => {
+      item.innerText = `$${total.toFixed(2)}`;
+    });
+  }
+
 
   cartData.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -72,10 +83,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
         getNumOfGoods();
         getGoods();
+        totalsum();
       }
     });
   });
 
   getNumOfGoods();
   getGoods();
+  totalsum();
 });
