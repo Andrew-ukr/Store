@@ -101,10 +101,8 @@ window.addEventListener('DOMContentLoaded', () => {
             init();
             break;
         }
-
       });
     });
-
   }
 
   function init() {
@@ -127,8 +125,8 @@ window.addEventListener('DOMContentLoaded', () => {
       const goodsId = item.querySelector(`[data-id]`);
 
       if (e.target && e.target.dataset.cart === 'add') {
+        let control = 0;
         let goods = {};
-        goods.id = goodsId.getAttribute("data-id");
         goods.title = goodsTitle.innerText;
         goods.price = goodsPrice.innerText;
         goods.size = goodsSize.value;
@@ -136,11 +134,21 @@ window.addEventListener('DOMContentLoaded', () => {
         goods.color = goodsColor.title;
         goods.img = goodsImgPath.getAttribute('src');
         goods.imgWebp = goodsImgPath.previousElementSibling.getAttribute('srcset');
+        goods.id = `${goods.title} ${goods.color} ${goods.size}GB`;
 
-        cart.unshift(goods);
-        localStorage.setItem('cartItems', JSON.stringify(cart));
+        cart.forEach(elem => {
+          if (elem.id === goods.id) {
+            control += 1;
+          }
+        });
 
-        init();
+        if (control === 0) {
+          cart.unshift(goods);
+          localStorage.setItem('cartItems', JSON.stringify(cart));
+          init();
+        } else {
+          goods = {};
+        }
       }
     });
   });

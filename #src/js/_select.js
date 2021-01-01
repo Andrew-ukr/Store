@@ -21,7 +21,5 @@ window.addEventListener('DOMContentLoaded', () => {
         priceBodyOld.textContent = `$799`;
         break;
     }
-
   });
-
 });

@@ -29,3 +29,7 @@
 
 @@include('./_cart.js');
 // select color
+
+@@include('./_media.js');
+// select color
+

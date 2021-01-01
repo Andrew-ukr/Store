@@ -9,6 +9,16 @@
 .related__body {
   display: flex;
   justify-content: space-between;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 550px) {
+    flex-direction: row;
+  }
+
 }
 
 .related__item {
