@@ -3,7 +3,9 @@
 }
 
 .goods-inner {
-  display: flex;
+  @media (min-width: 775px) {
+    display: flex;
+  }
 }
 
 .goods__body {
@@ -34,11 +36,14 @@
 
 .goods__col {
   &:first-child {
-    width: 300px;
+    width: 270px;
+
+    @media (min-width: 360px) {
+      width: 300px;
+    }
 
     @media (min-width: 450px) {
       width: 375px;
-
     }
   }
 
@@ -204,7 +209,11 @@
   }
 
   &+& {
-    margin-left: 20px;
+    margin-left: 10px;
+
+    @media (min-width: 768px) {
+      margin-left: 20px;
+    }
   }
 
   &.red {
@@ -344,7 +353,7 @@
 
 .goods__cart-btn {
   position: relative;
-  width: 125px;
+  width: 46px;
   height: 46px;
   border-radius: 4px;
   background-color: #33a0ff1a;
@@ -353,20 +362,31 @@
   font-weight: 600;
   letter-spacing: 0.35px;
   line-height: 16.8px;
-  padding: 0 10px 0 40px;
+  padding: 0 10px 0 20px;
+
+  @media (min-width: 365px) {
+    width: 125px;
+    padding: 0 10px 0 40px;
+
+  }
 
   @media (min-width: 385px) {
-  width: 150px;
-
+    width: 150px;
     padding: 0 20px 0 50px;
   }
 
   &::after {
     content: url(.././img/goods/cart.svg);
     position: absolute;
-    left: 10px;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+
+    @media (min-width: 365px) {
+      left: 10px;
+      transform: translate(0, 0);
+      transform: translateY(-50%);
+    }
 
     @media (min-width: 385px) {
       left: 20px;
@@ -422,10 +442,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
+  width: 130px;
   height: 46px;
   border-radius: 4px;
   cursor: pointer;
+
+  @media (min-width: 360px) {
+    width: 150px;
+  }
+
+  @media (min-width: 420px) {
+    width: 180px;
+  }
 
   @media (min-width: 420px) {
     width: 180px;
@@ -488,6 +516,14 @@
   display: flex;
   padding: 0 30px;
   border-bottom: 4px solid #e5e8ea;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+
+  @media (min-width: 550px) {}
 }
 
 .goods__tab-list-item {
@@ -500,6 +536,7 @@
   padding: 30px 0;
   transition: .3s;
   cursor: pointer;
+  white-space: nowrap;
 
   &.active {
     transition: .3s;

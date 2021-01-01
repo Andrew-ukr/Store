@@ -1,5 +1,8 @@
 .related {
-  margin-bottom: 160px;
+  margin-bottom: 60px;
+  @media (min-width: 550px) {
+    margin-bottom: 160px;
+  }
 }
 
 .related__title {
@@ -18,7 +21,6 @@
   @media (min-width: 550px) {
     flex-direction: row;
   }
-
 }
 
 .related__item {

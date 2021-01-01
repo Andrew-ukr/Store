@@ -1801,12 +1801,6 @@ input.checkbox:focus ~ .fake::before {
   margin-bottom: 90px;
 }
 
-.goods-inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .goods__body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -1837,7 +1831,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .goods__col:first-child {
-  width: 300px;
+  width: 270px;
 }
 
 .goods__col:last-child {
@@ -1991,7 +1985,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .goods__color-item + .goods__color-item {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .goods__color-item.red {
@@ -2180,7 +2174,7 @@ input.checkbox:focus ~ .fake::before {
 
 .goods__cart-btn {
   position: relative;
-  width: 125px;
+  width: 46px;
   height: 46px;
   border-radius: 4px;
   background-color: #33a0ff1a;
@@ -2191,17 +2185,17 @@ input.checkbox:focus ~ .fake::before {
   font-weight: 600;
   letter-spacing: 0.35px;
   line-height: 16.8px;
-  padding: 0 10px 0 40px;
+  padding: 0 10px 0 20px;
 }
 
 .goods__cart-btn::after {
   content: url(.././img/goods/cart.svg);
   position: absolute;
-  left: 10px;
+  left: 50%;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .goods__cart-btn:hover,
@@ -2267,7 +2261,7 @@ input.checkbox:focus ~ .fake::before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 150px;
+  width: 130px;
   height: 46px;
   border-radius: 4px;
   cursor: pointer;
@@ -2321,6 +2315,12 @@ input.checkbox:focus ~ .fake::before {
   display: flex;
   padding: 0 30px;
   border-bottom: 4px solid #e5e8ea;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.goods__tab-list::-webkit-scrollbar {
+  display: none;
 }
 
 .goods__tab-list-item {
@@ -2335,6 +2335,7 @@ input.checkbox:focus ~ .fake::before {
   -o-transition: .3s;
   transition: .3s;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .goods__tab-list-item.active {
@@ -2479,7 +2480,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .related {
-  margin-bottom: 160px;
+  margin-bottom: 60px;
 }
 
 .related__title {
@@ -2688,6 +2689,33 @@ input.checkbox:focus ~ .fake::before {
   cursor: pointer;
 }
 
+@media (min-width: 360px) {
+  .goods__col:first-child {
+    width: 300px;
+  }
+
+  .goods__smn-btn {
+    width: 150px;
+  }
+}
+
+@media (min-width: 365px) {
+  .goods__cart-btn {
+    width: 125px;
+    padding: 0 10px 0 40px;
+  }
+
+  .goods__cart-btn::after {
+    left: 10px;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
 @media (min-width: 370px) {
   .news__item-data {
     margin: 15px 0 8px;
@@ -2716,6 +2744,10 @@ input.checkbox:focus ~ .fake::before {
 }
 
 @media (min-width: 420px) {
+  .goods__smn-btn {
+    width: 180px;
+  }
+
   .goods__smn-btn {
     width: 180px;
   }
@@ -2854,6 +2886,10 @@ input.checkbox:focus ~ .fake::before {
     visibility: visible;
   }
 
+  .related {
+    margin-bottom: 160px;
+  }
+
   .related__body {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -2904,7 +2940,19 @@ input.checkbox:focus ~ .fake::before {
   }
 }
 
+@media (min-width: 768px) {
+  .goods__color-item + .goods__color-item {
+    margin-left: 20px;
+  }
+}
+
 @media (min-width: 775px) {
+  .goods-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .goods__col:last-child {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
