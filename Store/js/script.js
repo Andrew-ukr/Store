@@ -349,14 +349,13 @@ window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('cartItems')) {
     cart = JSON.parse(localStorage.getItem('cartItems'));
   }
-  let numOfGoods;
 
   function getNumOfGoods() {
     let counter = 0;
     cart.forEach(item => {
       counter += +item.number;
     });
-    numOfGoods = numberOfGoods.innerText = `${counter}`;
+    numberOfGoods.innerText = `${counter}`;
   }
 
   function getGoods() {
@@ -412,10 +411,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (e.target && e.target.parentElement.classList.contains("cart-item__del") || e.target && e.target.classList.contains("cart-item__del")) {
           cart.splice(i, 1);
           localStorage.setItem('cartItems', JSON.stringify(cart));
-          getNumOfGoods();
-          getGoods();
-          totalsum();
-          delCartElem();
+          init();
         }
       });
     });
@@ -423,11 +419,42 @@ window.addEventListener('DOMContentLoaded', () => {
     cartDelBtn.addEventListener('click', () => {
       cart = [];
       localStorage.setItem('cartItems', JSON.stringify(cart));
-      getNumOfGoods();
-      getGoods();
-      totalsum();
-      delCartElem();
+      init();
     });
+  }
+
+  function changeQty() {
+    let cartElem = document.querySelectorAll(`.cart-item`);
+    cartElem.forEach((item, i) => {
+      item.addEventListener('click', (e) => {
+        switch (e.target && e.target.className) {
+          case 'cart-item__quantity-plus':
+            cart[i].number = +cart[i].number + 1;
+            localStorage.setItem('cartItems', JSON.stringify(cart));
+            init();
+            break;
+
+          case 'cart-item__quantity-minus':
+            cart[i].number = +cart[i].number - 1;
+            if (cart[i].number < 1) {
+              cart[i].number = 1;
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cart));
+            init();
+            break;
+        }
+
+      });
+    });
+
+  }
+
+  function init() {
+    getNumOfGoods();
+    getGoods();
+    totalsum();
+    delCartElem();
+    changeQty();
   }
 
   cartData.forEach(item => {
@@ -455,20 +482,11 @@ window.addEventListener('DOMContentLoaded', () => {
         cart.unshift(goods);
         localStorage.setItem('cartItems', JSON.stringify(cart));
 
-        getNumOfGoods();
-        getGoods();
-        totalsum();
-        delCartElem();
-
+        init();
       }
     });
   });
 
-
-
-  getNumOfGoods();
-  getGoods();
-  totalsum();
-  delCartElem();
+  init();
 });;
 // select color
