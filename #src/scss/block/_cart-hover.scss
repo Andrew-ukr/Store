@@ -8,7 +8,7 @@
 
   top: 16px;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   cursor: default;
 
   &::after {
@@ -81,6 +81,11 @@
   }
 }
 
+.cart-items__body {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -91,7 +96,7 @@
   }
 }
 
-.cart-item__close {
+.cart-item__del {
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -132,6 +137,8 @@
   align-items: center;
   justify-content: center;
   margin-left: 20px;
+  width: 20px;
+  margin-right: 10px;
 }
 
 .cart-item__quantity-plus {

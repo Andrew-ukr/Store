@@ -345,7 +345,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const numberOfGoods = document.querySelector(`[data-cart="numberOfGoods"]`);
   const hoverCart = document.querySelector(`[data-cart="hover-cart"]`);
   const totalSum = document.querySelectorAll(`[data-cart="total"]`);
-  let goods = {};
   let cart = [];
   if (localStorage.getItem('cartItems')) {
     cart = JSON.parse(localStorage.getItem('cartItems'));
@@ -361,16 +360,19 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function getGoods() {
-    if (localStorage.getItem('cartItems')) {
+    if (localStorage.getItem('cartItems') && cart.length > 0) {
       let itemsArray = '';
       cart.forEach(item => {
         itemsArray += `
         <div class="cart-item">
-        <div class="cart-item__close">
+        <div class="cart-item__del">
           <img class="cart-item__close-img" src="img/cart/close.svg" alt="">
         </div>
         <div class="cart-item__img-body">
-          <img class="cart-item__img" src="img/goods/goods1/red/small/beats1.jpg" alt="">
+          <picture>
+            <source srcset="${item.imgWebp}" type="image/webp">
+            <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
+          </picture>
         </div>
         <div class="cart-item_text">
           <div class="cart-item__title">${item.title}</div>
@@ -387,6 +389,8 @@ window.addEventListener('DOMContentLoaded', () => {
         `;
       });
       hoverCart.innerHTML = `${itemsArray}`;
+    } else {
+      hoverCart.innerText = `No products`;
     }
   }
 
@@ -400,6 +404,31 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function delCartElem() {
+    let cartElem = document.querySelectorAll(`.cart-item`);
+    let cartDelBtn = document.querySelector(`button.cart-hover__btn`);
+    cartElem.forEach((item, i) => {
+      item.addEventListener('click', (e) => {
+        if (e.target && e.target.parentElement.classList.contains("cart-item__del") || e.target && e.target.classList.contains("cart-item__del")) {
+          cart.splice(i, 1);
+          localStorage.setItem('cartItems', JSON.stringify(cart));
+          getNumOfGoods();
+          getGoods();
+          totalsum();
+          delCartElem();
+        }
+      });
+    });
+
+    cartDelBtn.addEventListener('click', () => {
+      cart = [];
+      localStorage.setItem('cartItems', JSON.stringify(cart));
+      getNumOfGoods();
+      getGoods();
+      totalsum();
+      delCartElem();
+    });
+  }
 
   cartData.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -409,29 +438,37 @@ window.addEventListener('DOMContentLoaded', () => {
       const goodsSize = item.querySelector(`[data-cart="size"]`);
       const goodsNumber = item.querySelector(`[data-cart="number"]`);
       const goodsColor = item.querySelector(`.active[data-cart="color"]`);
+      const goodsImgPath = item.querySelector(`[data-cart="ImgPath"]`);
       const goodsId = item.querySelector(`[data-id]`);
 
       if (e.target && e.target.dataset.cart === 'add') {
+        let goods = {};
         goods.id = goodsId.getAttribute("data-id");
         goods.title = goodsTitle.innerText;
         goods.price = goodsPrice.innerText;
         goods.size = goodsSize.value;
         goods.number = goodsNumber.innerText;
         goods.color = goodsColor.title;
+        goods.img = goodsImgPath.getAttribute('src');
+        goods.imgWebp = goodsImgPath.previousElementSibling.getAttribute('srcset');
 
-        cart.push(goods);
+        cart.unshift(goods);
         localStorage.setItem('cartItems', JSON.stringify(cart));
-        cart = JSON.parse(localStorage.getItem('cartItems'));
 
         getNumOfGoods();
         getGoods();
         totalsum();
+        delCartElem();
+
       }
     });
   });
 
+
+
   getNumOfGoods();
   getGoods();
   totalsum();
+  delCartElem();
 });;
 // select color
