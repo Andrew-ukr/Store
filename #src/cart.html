@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.min.css">
+  <title>Cart</title>
+</head>
+
+<body>
+
+  @@include('_header.html')
+
+  <main>
+
+    <div class="path">
+      <a class="path__link" href="#">Home</a>
+      <span class="path__slash">/</span>
+      <span class="path__current">Cart</span>
+    </div>
+
+    <div class="cart">
+      <div class="container">
+        <div class="cart-inner">
+          <div class="cart__title">
+            <div class="cart__title-item">PRODUCT</div>
+            <div class="cart__title-item">UNIT PRICE</div>
+            <div class="cart__title-item">QTY</div>
+            <div class="cart__title-item">PRICE</div>
+          </div>
+
+          <div class="cart-body" data-cart="main-cart">
+
+          </div>
+
+          <div class="cart-result">
+            <div class="cart-result__item">
+              <div class="cart-result__input-wrapper">
+                <input class="cart-result__input" type="text" name="voucher" placeholder="Voucher code">
+              </div>
+            </div>
+            <div class="cart-result__item">
+              <div class="cart-result__total-item">
+                <span class="cart-result__total-item-text">Subtotal</span>
+                <span class="cart-result__total-item-text" data-cart="total">$998</span>
+              </div>
+              <div class="cart-result__total-item">
+                <span class="cart-result__total-item-text">Shipping fee</span>
+                <span class="cart-result__total-item-text">$0</span>
+              </div>
+              <div class="cart-result__total-item">
+                <span class="cart-result__total-item-text">Coupon</span>
+                <span class="cart-result__total-item-text">No</span>
+              </div>
+              <hr class="hr-thin">
+              <div class="cart-result__total-item">
+                <span class="cart-result__total-item-text-big">TOTAL</span>
+                <span class="cart-result__total-item-text-big" data-cart="total">$118</span>
+              </div>
+              <button class="cart-result__total-item-btn">
+                Check out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+
+  @@include('_footer.html')
+
+  <div class="modal">
+    <div class="modal-container">
+      <div class="modal__close-btn">
+        <img src="img/modal/close-btn.svg" alt="">
+      </div>
+      <div class="modal__body">
+        <div class="modal__col">
+          <div class="modal__title">Newsletter</div>
+          <div class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua</div>
+          <div class="modal__input-wrapper">
+            <input class="modal__input" type="email" name="email" placeholder="email">
+            <button class="modal__input-btn">Subscribe</button>
+          </div>
+          <div class="modal__checkbox">
+            <label class="modal__checkbox-label" for="checkbox-modal">
+              <input class="checkbox" type="checkbox" name="checkbox" id="checkbox-modal">
+              <span class="modal__checkbox-text">
+                Don’t show this popup again
+              </span>
+              <span class="fake"></span>
+            </label>
+          </div>
+        </div>
+        <div class="modal__col">
+          <div class="modal__img-wrapper">
+            <img class="modal__img" src="img/modal/modal-img.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal__cart-massage">
+  </div>
+
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>

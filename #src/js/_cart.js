@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const cartData = document.querySelectorAll(`[data-cart="data"]`);
   const numberOfGoods = document.querySelector(`[data-cart="numberOfGoods"]`);
   const hoverCart = document.querySelector(`[data-cart="hover-cart"]`);
+  const mainCart = document.querySelector(`[data-cart="main-cart"]`);
   const totalSum = document.querySelectorAll(`[data-cart="total"]`);
   let cart = [];
   if (localStorage.getItem('cartItems')) {
@@ -16,39 +17,88 @@ window.addEventListener('DOMContentLoaded', () => {
     numberOfGoods.innerText = `${counter}`;
   }
 
-  function getGoods() {
-    if (localStorage.getItem('cartItems') && cart.length > 0) {
-      let itemsArray = '';
-      cart.forEach(item => {
-        itemsArray += `
-        <div class="cart-item">
-        <div class="cart-item__del">
-          <img class="cart-item__close-img" src="img/cart/close.svg" alt="">
-        </div>
-        <div class="cart-item__img-body">
-          <picture>
-            <source srcset="${item.imgWebp}" type="image/webp">
-            <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
-          </picture>
-        </div>
-        <div class="cart-item_text">
-          <div class="cart-item__title">${item.title}</div>
-          <div class="cart-item__price">${item.price}</div>
-        </div>
-        <div class="cart-item__quantity-body">
-          <div class="cart-item__quantity">
-            <div class="cart-item__quantity-plus">+</div>
-            <div class="cart-item__quantity-number">${item.number}</div>
-            <div class="cart-item__quantity-minus">-</div>
-          </div>
-        </div>
-      </div>
-        `;
-      });
-      hoverCart.innerHTML = `${itemsArray}`;
-    } else {
-      hoverCart.innerText = `No products`;
+  function cartResultBlock() {
+    try {
+      let cartResaultblock = document.querySelector('.cart-result');
+      if (cart.length > 0) {
+        cartResaultblock.style.display = 'flex';
+      } else {
+        cartResaultblock.style.display = 'none';
+      }
+    } catch (error) {
+
     }
+  }
+
+  function getGoods() {
+    try {
+      if (localStorage.getItem('cartItems') && cart.length > 0) {
+        let itemsArray = '';
+        let itemsArrayCart = '';
+        cart.forEach(item => {
+          itemsArray += `
+            <div class="cart-item cart-item-hover">
+              <div class="cart-item__del">
+                <img class="cart-item__close-img" src="img/cart/close.svg" alt="">
+              </div>
+              <div class="cart-item__img-body">
+                <picture>
+                  <source srcset="${item.imgWebp}" type="image/webp">
+                  <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
+                </picture>
+              </div>
+              <div class="cart-item_text">
+                <div class="cart-item__title">${item.title}</div>
+                <div class="cart-item__price">${item.price}</div>
+              </div>
+              <div class="cart-item__quantity-body">
+                <div class="cart-item__quantity">
+                  <div class="cart-item__quantity-plus">+</div>
+                  <div class="cart-item__quantity-number">${item.number}</div>
+                  <div class="cart-item__quantity-minus">-</div>
+                </div>
+              </div>
+            </div>
+          `;
+
+          itemsArrayCart += `
+            <div class="cart-item cart-item-big">
+              <div class="cart-item__del">
+                <img class="cart-item__close-img" src="img/cart/close.svg" alt="">
+              </div>
+              <div class="cart-item__img-body">
+                <picture>
+                  <source srcset="${item.imgWebp}" type="image/webp">
+                  <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
+                </picture>
+              </div>
+              <div class="cart-item__title">${item.title} ${item.color.toUpperCase()} ${item.size} GB</div>
+              <div class="cart-item__price">${item.price}</div>
+              <div class="cart-item__quantity-body">
+                <div class="goods__quantity-body">
+                  <div class="goods__quantity-minus cart-item__quantity-minus">-</div>
+                  <div class="goods__quantity-number" data-cart="number">${item.number}</div>
+                  <div class="goods__quantity-plus cart-item__quantity-plus">+</div>
+                </div>
+              </div>
+              <div class="cart-item__price-total">${item.price}</div>
+            </div>
+            `;
+        });
+        hoverCart.innerHTML = `${itemsArray}`;
+        mainCart.innerHTML = `${itemsArrayCart}`;
+      } else {
+        hoverCart.innerText = `No products`;
+        mainCart.innerHTML = `
+        <div class="cart-no-product">
+          No product 
+        </div>
+        `;
+      }
+    } catch (error) {
+
+    }
+
   }
 
   function totalsum() {
@@ -61,8 +111,8 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function delCartElem() {
-    let cartElem = document.querySelectorAll(`.cart-item`);
+  function delCartElem(a) {
+    let cartElem = document.querySelectorAll(a);
     let cartDelBtn = document.querySelector(`button.cart-hover__btn`);
     cartElem.forEach((item, i) => {
       item.addEventListener('click', (e) => {
@@ -81,36 +131,39 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function changeQty() {
-    let cartElem = document.querySelectorAll(`.cart-item`);
-    cartElem.forEach((item, i) => {
-      item.addEventListener('click', (e) => {
-        switch (e.target && e.target.className) {
-          case 'cart-item__quantity-plus':
+  function changeQty(a) {
+    try {
+      let cartElem = document.querySelectorAll(a);
+      cartElem.forEach((item, i) => {
+        item.addEventListener('click', (e) => {
+          if (e.target && e.target.classList.contains('cart-item__quantity-plus')) {
             cart[i].number = +cart[i].number + 1;
             localStorage.setItem('cartItems', JSON.stringify(cart));
             init();
-            break;
-
-          case 'cart-item__quantity-minus':
+          } else if ((e.target && e.target.classList.contains('cart-item__quantity-minus'))) {
             cart[i].number = +cart[i].number - 1;
             if (cart[i].number < 1) {
               cart[i].number = 1;
             }
             localStorage.setItem('cartItems', JSON.stringify(cart));
             init();
-            break;
-        }
+          }
+        });
       });
-    });
+    } catch (error) {
+
+    }
   }
 
   function init() {
     getNumOfGoods();
     getGoods();
     totalsum();
-    delCartElem();
-    changeQty();
+    delCartElem(`.cart-item-hover`);
+    delCartElem(`.cart-item-big`);
+    changeQty(`.cart-item-hover`);
+    changeQty(`.cart-item-big`);
+    cartResultBlock();
   }
 
   cartData.forEach(item => {
@@ -122,7 +175,6 @@ window.addEventListener('DOMContentLoaded', () => {
       const goodsNumber = item.querySelector(`[data-cart="number"]`);
       const goodsColor = item.querySelector(`.active[data-cart="color"]`);
       const goodsImgPath = item.querySelector(`[data-cart="ImgPath"]`);
-      const goodsId = item.querySelector(`[data-id]`);
 
       if (e.target && e.target.dataset.cart === 'add') {
         let control = 0;
@@ -139,6 +191,7 @@ window.addEventListener('DOMContentLoaded', () => {
         cart.forEach(elem => {
           if (elem.id === goods.id) {
             control += 1;
+            showCartMassage('The product has already been added', '#ffa9a9');
           }
         });
 
@@ -146,6 +199,7 @@ window.addEventListener('DOMContentLoaded', () => {
           cart.unshift(goods);
           localStorage.setItem('cartItems', JSON.stringify(cart));
           init();
+          showCartMassage('Product added successfully', '#a9ffa9');
         } else {
           goods = {};
         }
@@ -154,4 +208,17 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   init();
+
+  function showCartMassage(text, color) {
+    let cartMassage = document.querySelector(".modal__cart-massage");
+    cartMassage.style.cssText = `
+    display: flex;
+    background-color: ${color};
+    `;
+    cartMassage.innerText = text;
+
+    setTimeout(() => {
+      cartMassage.style.display = 'none';
+    }, 2000);
+  }
 });

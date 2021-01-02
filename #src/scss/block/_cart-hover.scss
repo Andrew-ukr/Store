@@ -56,6 +56,9 @@
 }
 
 .cart-hover__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 40px;
   background-color: #fafafb;
