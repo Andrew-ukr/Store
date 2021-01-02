@@ -2751,48 +2751,26 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .cart-result__input-wrapper {
-  position: relative;
-}
-
-.cart-result__input-wrapper::after {
-  position: absolute;
-  content: "Redeem";
-  height: 100%;
-  width: 120px;
-  right: 0;
-  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #33a0ff;
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.35px;
-  line-height: 22px;
-  border-radius: 0 4px 4px 0;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
-  cursor: pointer;
 }
 
-.cart-result__input-wrapper:hover::after,
-.cart-result__input-wrapper:focus::after,
-.cart-result__input-wrapper:active::after {
+.cart-result__input-wrapper:hover,
+.cart-result__input-wrapper:focus,
+.cart-result__input-wrapper:active {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
-  background-color: #0088ff;
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cart-result__input {
-  width: 100%;
+  width: 250px;
   height: 60px;
   border-radius: 4px;
   border: 2px solid #f1f3f4;
@@ -2802,14 +2780,27 @@ input.checkbox:focus ~ .fake::before {
   transition: .3s;
 }
 
-.cart-result__input:hover,
-.cart-result__input:focus,
-.cart-result__input:active {
+.cart-result__input-btn {
+  height: 60px;
+  width: 120px;
+  background-color: #33a0ff;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  line-height: 22px;
+  border-radius: 0 4px 4px 0;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
-  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-result__input-btn:hover,
+.cart-result__input-btn:focus,
+.cart-result__input-btn:active {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  background-color: #0088ff;
 }
 
 .cart-result__item {

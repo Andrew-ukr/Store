@@ -433,7 +433,7 @@ window.addEventListener('DOMContentLoaded', () => {
                   <div class="goods__quantity-plus cart-item__quantity-plus">+</div>
                 </div>
               </div>
-              <div class="cart-item__price-total">${item.price}</div>
+              <div class="cart-item__price-total">$${item.price.replace(/\D/, '') * item.number}</div>
             </div>
             `;
         });
@@ -506,6 +506,45 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function showCartMassage(text, color) {
+    let cartMassage = document.querySelector(".modal__cart-massage");
+    cartMassage.style.cssText = `
+      display: flex;
+      background-color: ${color};
+    `;
+    cartMassage.innerText = text;
+
+    setTimeout(() => {
+      cartMassage.style.display = 'none';
+    }, 2000);
+  }
+
+  function checkCoupon() {
+    try {
+      let coupon = document.querySelector('[data-cart="coupon"]');
+      let couponInput = document.querySelector('.cart-result__input');
+      let couponInputBtn = document.querySelector('.cart-result__input-btn');
+  
+      couponInputBtn.addEventListener('click', () => {
+        if (couponInput.value === '1111') {
+          coupon.innerText = '$100';
+          document.querySelector('.cart-result__total-item-text-big[data-cart="total"]').innerText = `$${(document.querySelector('.cart-result__total-item-text-big[data-cart="total"]').innerText.replace(/\D/,"") - 100).toFixed(2)}`;
+          showCartMassage('Disscount  $100', '#a9ffa9');
+          couponInputBtn.disabled = true;
+        } else{
+          coupon.innerText = 'No';
+          showCartMassage('Wrong code', '#ffa9a9');
+        }
+        couponInput.value = '';
+      });
+    } catch (error) {
+      
+    }
+  }
+
+
+  checkCoupon();
+
   function init() {
     getNumOfGoods();
     getGoods();
@@ -560,18 +599,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   init();
 
-  function showCartMassage(text, color) {
-    let cartMassage = document.querySelector(".modal__cart-massage");
-    cartMassage.style.cssText = `
-      display: flex;
-      background-color: ${color};
-    `;
-    cartMassage.innerText = text;
 
-    setTimeout(() => {
-      cartMassage.style.display = 'none';
-    }, 2000);
-  }
 });;
 // cart
 
