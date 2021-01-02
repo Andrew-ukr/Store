@@ -98,7 +98,6 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
 
     }
-
   }
 
   function totalsum() {
@@ -212,8 +211,8 @@ window.addEventListener('DOMContentLoaded', () => {
   function showCartMassage(text, color) {
     let cartMassage = document.querySelector(".modal__cart-massage");
     cartMassage.style.cssText = `
-    display: flex;
-    background-color: ${color};
+      display: flex;
+      background-color: ${color};
     `;
     cartMassage.innerText = text;
 

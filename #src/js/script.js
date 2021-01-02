@@ -25,11 +25,13 @@
 // select color
 
 @@include('./_select.js');
-// select color
+// select 
 
 @@include('./_cart.js');
-// select color
+// cart
 
 @@include('./_media.js');
-// select color
+// media
+
+
 

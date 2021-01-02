@@ -348,7 +348,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   }
 });;
-// select color
+// select 
 
 window.addEventListener('DOMContentLoaded', () => {
   const cartData = document.querySelectorAll(`[data-cart="data"]`);
@@ -450,7 +450,6 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
 
     }
-
   }
 
   function totalsum() {
@@ -564,8 +563,8 @@ window.addEventListener('DOMContentLoaded', () => {
   function showCartMassage(text, color) {
     let cartMassage = document.querySelector(".modal__cart-massage");
     cartMassage.style.cssText = `
-    display: flex;
-    background-color: ${color};
+      display: flex;
+      background-color: ${color};
     `;
     cartMassage.innerText = text;
 
@@ -574,7 +573,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 2000);
   }
 });;
-// select color
+// cart
 
 window.addEventListener('DOMContentLoaded', () => {
   try {
@@ -593,5 +592,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   }
 });;
-// select color
+// media
+
+
 

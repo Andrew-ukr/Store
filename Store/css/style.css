@@ -2720,6 +2720,10 @@ input.checkbox:focus ~ .fake::before {
   text-transform: uppercase;
 }
 
+.cart__title-item:first-child {
+  width: 47%;
+}
+
 .cart-body .cart-item {
   padding: 40px 0;
   color: #262626;
