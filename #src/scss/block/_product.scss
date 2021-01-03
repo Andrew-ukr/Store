@@ -24,7 +24,7 @@
   display: flex;
   justify-content: left;
   transition: .3s;
-  overflow: scroll;
+  overflow: auto;
 
   @media (min-width: 500px) {
     justify-content: center;
@@ -82,8 +82,14 @@
   }
 
   @media (min-width: 550px) {
-    justify-content: space-between;
-    flex-wrap: wrap;
+    // justify-content: space-between;
+    
+    // flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    overflow: unset;
   }
 
   @media (min-width: 992px) {
@@ -142,7 +148,6 @@
 
   @media (min-width: 550px) {
     min-width: unset;
-    width: 32%;
     flex: unset;
     margin-right: unset;
 
@@ -158,13 +163,6 @@
     }
   }
 
-  @media (min-width: 850px) {
-    width: 24%;
-  }
-
-  @media (min-width: 992px) {
-    width: 23%;
-  }
 
   &.hot::after {
     @extend %cardAfter;
@@ -196,6 +194,16 @@
   letter-spacing: 0.35px;
   line-height: 16.8px;
   margin-bottom: 27px;
+  transition: .3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    transition: .3s;
+    color: #33a0ff;
+
+  }
+
 }
 
 .product-card__rate {

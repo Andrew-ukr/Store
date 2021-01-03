@@ -923,7 +923,7 @@ body.lock {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .products__tabs-list::-webkit-scrollbar {
@@ -1069,6 +1069,18 @@ body.lock {
   letter-spacing: 0.35px;
   line-height: 16.8px;
   margin-bottom: 27px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.product-card__title:hover,
+.product-card__title:focus,
+.product-card__title:active {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  color: #33a0ff;
 }
 
 .product-card__rate {
@@ -2005,7 +2017,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .goods__color-item.yellow {
-  background-color: #fff600;
+  background-color: #ffc600;
 }
 
 .goods__color-item.active::before {
@@ -3042,11 +3054,12 @@ input.checkbox:focus ~ .fake::before {
   }
 
   .products__tabs-content {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    overflow: unset;
   }
 
   .product-card.more-btn {
@@ -3057,7 +3070,6 @@ input.checkbox:focus ~ .fake::before {
 
   .product-card {
     min-width: unset;
-    width: 32%;
     -webkit-box-flex: unset;
         -ms-flex: unset;
             flex: unset;
@@ -3192,10 +3204,6 @@ input.checkbox:focus ~ .fake::before {
 }
 
 @media (min-width: 850px) {
-  .product-card {
-    width: 24%;
-  }
-
   .goods__smn-btn {
     width: 230px;
   }
@@ -3300,10 +3308,6 @@ input.checkbox:focus ~ .fake::before {
 
   .products__tabs-content {
     margin-bottom: 90px;
-  }
-
-  .product-card {
-    width: 23%;
   }
 
   .banner {
