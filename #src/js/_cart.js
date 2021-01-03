@@ -62,7 +62,13 @@ window.addEventListener('DOMContentLoaded', () => {
           `;
 
           itemsArrayCart += `
-            <div class="cart-item cart-item-big">
+          <div class="cart-item cart-item-big">
+
+          <div class="cart-item-big-wrapper">
+            <div class="cart-item-big-inner cart__title">
+              <div class="cart__title-item">PRODUCT NAME</div>
+            </div>
+            <div class="cart-item-big-inner">
               <div class="cart-item__del">
                 <img class="cart-item__close-img" src="img/cart/close.svg" alt="">
               </div>
@@ -73,6 +79,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 </picture>
               </div>
               <div class="cart-item__title">${item.title} ${item.color.toUpperCase()} ${item.size} GB</div>
+            </div>
+          </div>
+
+          <div class="cart-item-big-wrapper">
+            <div class="cart-item-big-inner cart__title">
+              <div class="cart__title-item">UNIT PRICE</div>
+              <div class="cart__title-item">QTY</div>
+              <div class="cart__title-item">PRICE</div>
+            </div>
+            <div class="cart-item-big-inner">
               <div class="cart-item__price">${item.price}</div>
               <div class="cart-item__quantity-body">
                 <div class="goods__quantity-body">
@@ -83,6 +99,9 @@ window.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="cart-item__price-total">$${item.price.replace(/\D/, '') * item.number}</div>
             </div>
+          </div>
+          
+        </div>
             `;
         });
         hoverCart.innerHTML = `${itemsArray}`;

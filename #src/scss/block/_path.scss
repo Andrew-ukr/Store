@@ -1,13 +1,22 @@
 .path {
-  padding: 17px 0;
+  padding: 17px 10px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   background-color: rgba(246, 247, 248, 0.5);
   font-weight: 600;
   letter-spacing: 0.35px;
   line-height: 16.8px;
   margin-bottom: 55px;
+  overflow: scroll;
+
+  @media (min-width: 500px) {
+    justify-content: center;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .path__link {
@@ -20,5 +29,5 @@
 }
 
 .path__current {
-
+  white-space: nowrap;
 }
