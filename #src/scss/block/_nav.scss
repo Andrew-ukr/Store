@@ -49,21 +49,24 @@
   background-color: #fff;
   padding-top: 20px;
 
-  .nav-list__items:hover & {
-    display: block;
-    z-index: 10;
-    left: 50%;
-    transform: translateX(-50%);
-
-    &::after {
-      content: url(.././img/icons/naw-arrow.svg);
-      position: absolute;
-      width: 17px;
-      height: 9px;
-      top: 10px;
-      left: 20.6%;
+  @media (min-width: 500px) {
+    .nav-list__items:hover & {
+      display: block;
+      z-index: 10;
+      left: 50%;
+      transform: translateX(-50%);
+  
+      &::after {
+        content: url(.././img/icons/naw-arrow.svg);
+        position: absolute;
+        width: 17px;
+        height: 9px;
+        top: 10px;
+        left: 20.6%;
+      }
     }
   }
+
   .nav-list__items:nth-child(2):hover & {
     &::after {
       left: 30.6%;
