@@ -1292,7 +1292,7 @@ button.more-btn {
 }
 
 .news {
-  margin-bottom: 50px;
+  margin-bottom: 142px;
 }
 
 .news-body__title {
@@ -1303,13 +1303,13 @@ button.more-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1319,10 +1319,6 @@ button.more-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  margin-bottom: 20px;
 }
 
 .news__item-img {
@@ -1335,13 +1331,13 @@ button.more-btn {
   font-weight: 600;
   letter-spacing: 0.35px;
   line-height: 16.8px;
-  margin: 0px 0 8px;
+  margin: 15px 0 8px;
 }
 
 .news__item-title {
   font-size: 18px;
   font-weight: 700;
-  line-height: 25px;
+  line-height: 43.2px;
   margin-bottom: 15px;
 }
 
@@ -1350,7 +1346,7 @@ button.more-btn {
 }
 
 .featured {
-  margin-bottom: 50px;
+  margin-bottom: 140px;
 }
 
 .featured-body__title {
@@ -1361,13 +1357,13 @@ button.more-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1383,8 +1379,8 @@ button.more-btn {
 .featured-img-wrapper::after {
   content: '';
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border: 2px solid #f6f7f8;
   border-radius: 4px;
   left: 50%;
@@ -1414,7 +1410,7 @@ button.more-btn {
 }
 
 .featured-inner {
-  width: 100%;
+  width: 135px;
   margin-left: 20px;
 }
 
@@ -2977,16 +2973,6 @@ input.checkbox:focus ~ .fake::before {
   }
 }
 
-@media (min-width: 370px) {
-  .news__item-data {
-    margin: 15px 0 8px;
-  }
-
-  .news__item-title {
-    line-height: 43.2px;
-  }
-}
-
 @media (min-width: 385px) {
   .goods__cart-btn {
     width: 150px;
@@ -3030,11 +3016,6 @@ input.checkbox:focus ~ .fake::before {
 
   .banner__body .banner__text {
     font-size: 24px;
-  }
-
-  .featured-img-wrapper::after {
-    width: 130px;
-    height: 130px;
   }
 
   .goods__col:first-child {
@@ -3476,28 +3457,6 @@ input.checkbox:focus ~ .fake::before {
     margin-bottom: 140px;
   }
 
-  .news {
-    margin-bottom: 142px;
-  }
-
-  .featured {
-    margin-bottom: 140px;
-  }
-
-  .featured-body {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-
-  .featured-inner {
-    width: 135px;
-  }
-
   .search {
     margin-bottom: 140px;
   }
@@ -3540,28 +3499,6 @@ input.checkbox:focus ~ .fake::before {
 
   .promo-item:nth-child(3) .promo-item__text {
     width: 120px;
-  }
-}
-
-@media (min-width: 1100px) {
-  .news-body {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-
-  .news__item {
-    margin-bottom: 0px;
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 350px;
-            flex: 0 1 350px;
   }
 }
 

@@ -73,5 +73,61 @@ window.addEventListener('DOMContentLoaded', () => {
       },
     }
   });
+  
+  let featuredSwiper = new Swiper('.featured-slider', {
+    spaceBetween: 10,
+    speed: 500,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      450: {
+        slidesPerView: 1.2
+      },
+      550: {
+        slidesPerView: 1.5
+      },
+      650: {
+        slidesPerView: 2
+      },
+      800: {
+        slidesPerView: 2.5
+      },
+      1000: {
+        slidesPerView: 3
+      },
+
+    }
+  });
+  
+  let newsSwiper = new Swiper('.news-slider', {
+    spaceBetween: 10,
+    speed: 500,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      450: {
+        slidesPerView: 1.2
+      },
+      600: {
+        slidesPerView: 1.5
+      },
+      700: {
+        slidesPerView: 2
+      },
+      850: {
+        slidesPerView: 2.5
+      },
+      1050: {
+        slidesPerView: 3
+      },
+
+    }
+  });
 
 });
