@@ -985,6 +985,7 @@ body.lock {
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
+  margin-right: 10px;
 }
 
 .product-card.more-btn {
@@ -1858,16 +1859,12 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .goods__down-slider-container .swiper-slide .swiper-slide__img-wrapper {
-  height: auto;
+  height: 70px;
 }
 
 .swiper-slide__img-wrapper {
   width: 100%;
-  height: 370px;
-}
-
-.goods__down-slider-container.swiper-container .swiper-slide__img-wrapper {
-  height: 86px;
+  height: 250px;
 }
 
 .swiper-slide__img {
@@ -2504,7 +2501,9 @@ input.checkbox:focus ~ .fake::before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 24%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
 }
 
 .cart-hover {
@@ -2776,6 +2775,15 @@ input.checkbox:focus ~ .fake::before {
   height: unset;
 }
 
+.cart-body .cart-item__del {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-body .cart-item__close-img {
+  width: 40%;
+}
+
 .cart-body .cart-item__img-body {
   display: block;
   width: 130px;
@@ -2939,6 +2947,7 @@ input.checkbox:focus ~ .fake::before {
   height: 50px;
   border-radius: 20px;
   background-color: #ffa9a9;
+  z-index: 5;
 }
 
 @media (min-width: 360px) {
@@ -3030,6 +3039,14 @@ input.checkbox:focus ~ .fake::before {
 
   .goods__col:first-child {
     width: 375px;
+  }
+
+  .goods__down-slider-container .swiper-slide .swiper-slide__img-wrapper {
+    height: 86px;
+  }
+
+  .swiper-slide__img-wrapper {
+    height: 370px;
   }
 }
 
@@ -3152,6 +3169,7 @@ input.checkbox:focus ~ .fake::before {
     display: none;
     min-width: unset;
     width: 32%;
+    margin-right: 0px;
   }
 
   .product-card {
@@ -3327,6 +3345,15 @@ input.checkbox:focus ~ .fake::before {
     height: 130px;
   }
 
+  .cart-body .cart-item__del {
+    width: unset;
+    height: unset;
+  }
+
+  .cart-body .cart-item__close-img {
+    width: unset;
+  }
+
   .cart-result {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -3335,6 +3362,9 @@ input.checkbox:focus ~ .fake::before {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
     margin-top: 70px;
   }
 

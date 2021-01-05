@@ -26,6 +26,6 @@
 .related__item {
   &.product-card {
     display: flex;
-    width: 24%;
+    flex: 0 0 auto;
   }
 }

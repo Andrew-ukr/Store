@@ -75,6 +75,40 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  let relatedSwiper = new Swiper('.related__slider', {
+    spaceBetween: 10,
+    speed: 500,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      360: {
+        slidesPerView: 1.5
+      },
+      420: {
+        slidesPerView: 2
+      },
+
+      520: {
+        slidesPerView: 2.5
+      },
+
+      620: {
+        slidesPerView: 3
+      },
+
+      720: {
+        slidesPerView: 3.5
+      },
+
+      820: {
+        slidesPerView: 4
+      },
+    }
+  });
+
 });;
 // slider
 
@@ -395,8 +429,8 @@ window.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="cart-item__img-body">
                 <picture>
-                  <source srcset="${item.imgWebp}" type="image/webp">
-                  <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
+                  <source srcset="${item.imgSmallWebp}" type="image/webp">
+                  <img class="swiper-slide__img" src="${item.imgSmall}" alt="" data-cart="ImgPath">
                 </picture>
               </div>
               <div class="cart-item_text">
@@ -426,8 +460,8 @@ window.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="cart-item__img-body">
                 <picture>
-                  <source srcset="${item.imgWebp}" type="image/webp">
-                  <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
+                  <source srcset="${item.imgMidWebp}" type="image/webp">
+                  <img class="swiper-slide__img" src="${item.imgMid}" alt="" data-cart="ImgPath">
                 </picture>
               </div>
               <div class="cart-item__title">${item.title} ${item.color.toUpperCase()} ${item.size} GB</div>
@@ -543,21 +577,21 @@ window.addEventListener('DOMContentLoaded', () => {
       let coupon = document.querySelector('[data-cart="coupon"]');
       let couponInput = document.querySelector('.cart-result__input');
       let couponInputBtn = document.querySelector('.cart-result__input-btn');
-  
+
       couponInputBtn.addEventListener('click', () => {
         if (couponInput.value === '1111') {
           coupon.innerText = '$100';
           document.querySelector('.cart-result__total-item-text-big[data-cart="total"]').innerText = `$${(document.querySelector('.cart-result__total-item-text-big[data-cart="total"]').innerText.replace(/\D/,"") - 100).toFixed(2)}`;
           showCartMassage('Disscount  $100', '#a9ffa9');
           couponInputBtn.disabled = true;
-        } else{
+        } else {
           coupon.innerText = 'No';
           showCartMassage('Wrong code', '#ffa9a9');
         }
         couponInput.value = '';
       });
     } catch (error) {
-      
+
     }
   }
 
@@ -595,6 +629,10 @@ window.addEventListener('DOMContentLoaded', () => {
         goods.color = goodsColor.title;
         goods.img = goodsImgPath.getAttribute('src');
         goods.imgWebp = goodsImgPath.previousElementSibling.getAttribute('srcset');
+        goods.imgSmall = goods.img.replace(`/${goods.color}/`, `/${goods.color}/small_`);
+        goods.imgSmallWebp = goods.imgWebp.replace(`/${goods.color}/`, `/${goods.color}/small_`);
+        goods.imgMid = goods.img.replace(`/${goods.color}/`, `/${goods.color}/mid_`);
+        goods.imgMidWebp = goods.imgWebp.replace(`/${goods.color}/`, `/${goods.color}/mid_`);
         goods.id = `${goods.title} ${goods.color} ${goods.size}GB`;
 
         cart.forEach(elem => {

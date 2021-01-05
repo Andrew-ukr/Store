@@ -85,9 +85,24 @@
     }
   }
 
-  .cart-item__del {}
+  .cart-item__del {
+    width: 30px;
+    height: 30px;
 
-  .cart-item__close-img {}
+    @media (min-width: 850px) {
+      width: unset;
+      height: unset;
+    }
+
+  }
+
+  .cart-item__close-img {
+    width: 40%;
+
+    @media (min-width: 850px) {
+      width: unset;
+    }
+  }
 
   .cart-item__img-body {
     display: block;
@@ -124,6 +139,7 @@
   @media (min-width: 850px) {
     flex-direction: row;
     justify-content: space-between;
+    align-items: unset;
     margin-top: 70px;
   }
 }

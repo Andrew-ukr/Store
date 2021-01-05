@@ -40,4 +40,38 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  let relatedSwiper = new Swiper('.related__slider', {
+    spaceBetween: 10,
+    speed: 500,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      360: {
+        slidesPerView: 1.5
+      },
+      420: {
+        slidesPerView: 2
+      },
+
+      520: {
+        slidesPerView: 2.5
+      },
+
+      620: {
+        slidesPerView: 3
+      },
+
+      720: {
+        slidesPerView: 3.5
+      },
+
+      820: {
+        slidesPerView: 4
+      },
+    }
+  });
+
 });
