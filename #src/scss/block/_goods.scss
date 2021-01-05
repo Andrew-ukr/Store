@@ -237,6 +237,13 @@
   &.yellow {
     background-color: #ffc600;
   }
+  &.grey {
+    background-color: #efdfdf;
+  }
+
+  &.pink {
+    background-color: #ff00b4;
+  }
 
   &.active {
     &::before {

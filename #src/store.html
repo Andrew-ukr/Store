@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.min.css">
+  <title>Cart</title>
+</head>
+
+<body>
+
+  @@include('_header.html')
+
+  <main>
+
+    <div class="path">
+      <a class="path__link" href="index.html">Home</a>
+      <span class="path__slash">/</span>
+      <span class="path__current">Store</span>
+    </div>
+
+    <div class="store">
+      <div class="container">
+        <div class="store__body">
+          <aside class="store__aside">
+
+            <div class="store__aside-block">
+              <div class="store__aside-block-title">BRAND</div>
+              <ul class="store__aside-block-list">
+                <li class="store__aside-block-list-item">Apple<span
+                    class="store__aside-block-list-item-value blue">99</span></li>
+                <li class="store__aside-block-list-item">LG<span
+                    class="store__aside-block-list-item-value red">99</span></li>
+                <li class="store__aside-block-list-item">Samsung<span
+                    class="store__aside-block-list-item-value black">99</span></li>
+                <li class="store__aside-block-list-item">Siemens<span
+                    class="store__aside-block-list-item-value yellow">99</span></li>
+              </ul>
+            </div>
+
+            <div class="store__aside-block">
+              <div class="store__aside-block-title">ACCESORIES</div>
+              <ul class="store__aside-block-list">
+                <li class="store__aside-block-list-item">Apple Car <span
+                    class="store__aside-block-list-item-value">2</span></li>
+                <li class="store__aside-block-list-item">Air port & wireless <span
+                    class="store__aside-block-list-item-value">2</span></li>
+                <li class="store__aside-block-list-item">Cables & Docks<span
+                    class="store__aside-block-list-item-value">2</span></li>
+                <li class="store__aside-block-list-item">Cases & Films <span
+                    class="store__aside-block-list-item-value">2</span></li>
+                <li class="store__aside-block-list-item">Charging Devices <span
+                    class="store__aside-block-list-item-value">2</span></li>
+                <li class="store__aside-block-list-item">Connected home <span
+                    class="store__aside-block-list-item-value">2</span></li>
+                <li class="store__aside-block-list-item">Headphones<span
+                    class="store__aside-block-list-item-value">2</span></li>
+              </ul>
+            </div>
+
+            <div class="store__aside-block">
+              <div class="store__aside-block-title">PRICES</div>
+              <ul class="store__aside-block-list">
+                <li class="store__aside-block-list-item">Ranger: <span class="store__aside-block-list-item-value" data-range='range'>$13.99
+                    - $25.99</span></li>
+              </ul>
+
+              <div class="store__aside-block-price-filter">
+
+                <input class="store__aside-input-left" type="range" min="1" max="799" value="99">
+                <input class="store__aside-input-right" type="range" min="1" max="799" value="799">
+
+                <div class="store__aside-range-slider range-slider">
+                  <div class="range-slider-track"></div>
+                  <div class="range-slider-range"></div>
+                  <div class="range-slider-left"></div>
+                  <div class="range-slider-right"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="store__aside-block">
+              <div class="store__aside-block-title">COLOR</div>
+              <ul class="store__aside-block-list">
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value blue goods__color-item active"></span>
+                </li>
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value red goods__color-item"></span>
+                </li>
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value black goods__color-item"></span>
+                </li>
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value yellow goods__color-item"></span>
+                </li>
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value pink goods__color-item"></span>
+                </li>
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value grey goods__color-item"></span>
+                </li>
+                <li class="store__aside-block-list-item"><span
+                    class="store__aside-block-list-item-value green goods__color-item"></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="store__aside-block">
+              <button class="store__aside-block-btn">
+                more
+              </button>
+            </div>
+
+          </aside>
+          <div class="store__center"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+
+  @@include('_footer.html')
+
+  <div class="modal">
+    <div class="modal-container">
+      <div class="modal__close-btn">
+        <img src="img/modal/close-btn.svg" alt="">
+      </div>
+      <div class="modal__body">
+        <div class="modal__col">
+          <div class="modal__title">Newsletter</div>
+          <div class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua</div>
+          <div class="modal__input-wrapper">
+            <input class="modal__input" type="email" name="email" placeholder="email">
+            <button class="modal__input-btn">Subscribe</button>
+          </div>
+          <div class="modal__checkbox">
+            <label class="modal__checkbox-label" for="checkbox-modal">
+              <input class="checkbox" type="checkbox" name="checkbox" id="checkbox-modal">
+              <span class="modal__checkbox-text">
+                Don’t show this popup again
+              </span>
+              <span class="fake"></span>
+            </label>
+          </div>
+        </div>
+        <div class="modal__col">
+          <div class="modal__img-wrapper">
+            <img class="modal__img" src="img/modal/modal-img.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal__cart-massage">
+  </div>
+
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>

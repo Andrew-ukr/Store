@@ -33,5 +33,8 @@
 @@include('./_media.js');
 // media
 
+@@include('./_range-slider.js');
+// range-slide
+
 
 

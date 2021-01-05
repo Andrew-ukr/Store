@@ -14,11 +14,9 @@ window.addEventListener('DOMContentLoaded', () => {
   let goodsSwiper = new Swiper('.goods-aside__slider', {
     speed: 500,
     loop: true,
-
     autoplay: {
       delay: 3000,
     },
-
     pagination: {
       el: '.swiper-pagination',
     },
@@ -55,19 +53,15 @@ window.addEventListener('DOMContentLoaded', () => {
       420: {
         slidesPerView: 2
       },
-
       520: {
         slidesPerView: 2.5
       },
-
       620: {
         slidesPerView: 3
       },
-
       720: {
         slidesPerView: 3.5
       },
-
       820: {
         slidesPerView: 4
       },
@@ -98,7 +92,6 @@ window.addEventListener('DOMContentLoaded', () => {
       1000: {
         slidesPerView: 3
       },
-
     }
   });
   
@@ -126,8 +119,6 @@ window.addEventListener('DOMContentLoaded', () => {
       1050: {
         slidesPerView: 3
       },
-
     }
   });
-
 });
