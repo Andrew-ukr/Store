@@ -12,11 +12,7 @@
 
 @import "nullstyle.scss";
 @import "fonts.scss";
-
-// @import "../../node_modules/aos/dist/aos.css";
-// @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 @import "../../node_modules/swiper/swiper-bundle.css";
-
 @import "./block/_general.scss";
 @import "./block/_nav.scss";
 @import "./block/_header.scss";
@@ -39,3 +35,5 @@
 @import "./block/_modal-massage.scss";
 @import "./block/_store-aside.scss";
 @import "./block/_range-slider.scss";
+@import "./block/_store-center.scss";
+@import "./block/_prod.scss";

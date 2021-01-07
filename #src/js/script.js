@@ -36,5 +36,8 @@
 @@include('./_range-slider.js');
 // range-slide
 
+@@include('./_store-filter.js');
+// range-slide
+
 
 
