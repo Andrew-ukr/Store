@@ -4,17 +4,21 @@
     <div class="container">
       <div class="top-panel">
         <div class="top-panel__info">
-          <select class="top-panel__select" name="lang">
-            <option value="en" selected>EN</option>
-            <option value="pln">PLN</option>
-            <option value="ukr">UKR</option>
-          </select>
+          <div class="top-panel__select-wrapper">
+            <select class="top-panel__select" name="lang">
+              <option value="en" selected>EN</option>
+              <option value="pln">PLN</option>
+              <option value="ukr">UKR</option>
+            </select>
+          </div>
 
-          <select class="top-panel__select" name="currency">
-            <option value="usd" selected>USD</option>
-            <option value="pln">PLN</option>
-            <option value="uah">UAH</option>
-          </select>
+          <div class="top-panel__select-wrapper">
+            <select class="top-panel__select" name="currency">
+              <option value="usd" selected>USD</option>
+              <option value="pln">PLN</option>
+              <option value="uah">UAH</option>
+            </select>
+          </div>
         </div>
 
         <div class="store-bar">
@@ -33,7 +37,7 @@
             <div class="cart-hover">
               <div class="cart-hover__inner">
                 <div class="cart-hover__product-area cart-items__body" data-cart="hover-cart">
-                    No products
+                  No products
                 </div>
 
                 <div class="cart-hover__shipping-area">

@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
         item.classList.remove('active');
       });
       if (elem.dataset.card) {
-        elem.classList.add('active');
         productCard.forEach(value => {
           value.classList.add('inline');
         });
@@ -19,9 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
         productCard.forEach(value => {
           value.classList.remove('inline');
         });
-        elem.classList.add('active');
         productList.classList.remove('inline');
       }
+      elem.classList.add('active');
     });
   });
 });

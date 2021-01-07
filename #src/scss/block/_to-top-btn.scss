@@ -1,0 +1,15 @@
+.to-top-btn {
+  background-color: transparent;
+  transition: 1s;
+  opacity: 0;
+
+  &::after {
+    position: fixed;
+    content: "";
+    right: 20px;
+    bottom: 50px;
+    width: 30px;
+    height: 30px;
+    background: url(.././img/to-top-arrow.svg) center no-repeat;
+  }
+}

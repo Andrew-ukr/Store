@@ -507,8 +507,8 @@ window.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="cart-item__img-body">
                 <picture>
-                  <source srcset="${item.imgMidWebp}" type="image/webp">
-                  <img class="swiper-slide__img" src="${item.imgMid}" alt="" data-cart="ImgPath">
+                  <source srcset="${item.imgWebp}" type="image/webp">
+                  <img class="swiper-slide__img" src="${item.img}" alt="" data-cart="ImgPath">
                 </picture>
               </div>
               <div class="cart-item__title">${item.title} ${item.color.toUpperCase()} ${item.size} GB</div>
@@ -676,10 +676,8 @@ window.addEventListener('DOMContentLoaded', () => {
         goods.color = goodsColor.title;
         goods.img = goodsImgPath.getAttribute('src');
         goods.imgWebp = goodsImgPath.previousElementSibling.getAttribute('srcset');
-        goods.imgSmall = goods.img.replace(`/${goods.color}/`, `/${goods.color}/small_`);
-        goods.imgSmallWebp = goods.imgWebp.replace(`/${goods.color}/`, `/${goods.color}/small_`);
-        goods.imgMid = goods.img.replace(`/${goods.color}/`, `/${goods.color}/mid_`);
-        goods.imgMidWebp = goods.imgWebp.replace(`/${goods.color}/`, `/${goods.color}/mid_`);
+        goods.imgSmall = goods.img.replace(`/mid_`, `/small_`);
+        goods.imgSmallWebp = goods.imgWebp.replace(`/mid_`, `/small_`);
         goods.id = `${goods.title} ${goods.color} ${goods.size}GB`;
 
         cart.forEach(elem => {
@@ -727,51 +725,55 @@ window.addEventListener('DOMContentLoaded', () => {
 // media
 
 window.addEventListener('DOMContentLoaded', () => {
-  let inputLeft = document.querySelector('input.store__aside-input-left');
-  let inputRight = document.querySelector('input.store__aside-input-right');
-  let leftBtn = document.querySelector('.range-slider-left');
-  let rightBtn = document.querySelector('.range-slider-right');
-  let range = document.querySelector('.range-slider-range');
-  let rangeValue = document.querySelector(`[data-range='range']`);
+  try {
+    let inputLeft = document.querySelector('input.store__aside-input-left');
+    let inputRight = document.querySelector('input.store__aside-input-right');
+    let leftBtn = document.querySelector('.range-slider-left');
+    let rightBtn = document.querySelector('.range-slider-right');
+    let range = document.querySelector('.range-slider-range');
+    let rangeValue = document.querySelector(`[data-range='range']`);
 
-  function getLeftValue() {
-    inputLeft.value = Math.min(+inputLeft.value, +inputRight.value - 1);
-    let value = ((+inputLeft.value - +inputLeft.min) / (+inputLeft.max - +inputLeft.min)) * 100;
-    leftBtn.style.left = `${value}%`;
-    range.style.left = `${value}%`;
-    initRangeValue();
-  }
+    function getLeftValue() {
+      inputLeft.value = Math.min(+inputLeft.value, +inputRight.value - 1);
+      let value = ((+inputLeft.value - +inputLeft.min) / (+inputLeft.max - +inputLeft.min)) * 100;
+      leftBtn.style.left = `${value}%`;
+      range.style.left = `${value}%`;
+      initRangeValue();
+    }
 
-  function getRightValue() {
-    inputRight.value = Math.max(+inputRight.value, +inputLeft.value + 1);
-    let value = ((+inputRight.value - +inputRight.min) / (+inputRight.max - +inputRight.min)) * 100;
-    rightBtn.style.right = `${100 - value}%`;
-    range.style.right = `${100 - value}%`;
-    initRangeValue();
-  }
+    function getRightValue() {
+      inputRight.value = Math.max(+inputRight.value, +inputLeft.value + 1);
+      let value = ((+inputRight.value - +inputRight.min) / (+inputRight.max - +inputRight.min)) * 100;
+      rightBtn.style.right = `${100 - value}%`;
+      range.style.right = `${100 - value}%`;
+      initRangeValue();
+    }
 
-  function initRangeValue() {
-    rangeValue.innerText = `$${(+inputLeft.value).toFixed(2)} - $${(+inputRight.value).toFixed(2)}`;
-  }
+    function initRangeValue() {
+      rangeValue.innerText = `$${(+inputLeft.value).toFixed(2)} - $${(+inputRight.value).toFixed(2)}`;
+    }
 
-  inputLeft.addEventListener('input', () => {
-    rightBtn.style.zIndex = "1";
-    leftBtn.style.zIndex = "2";
-    inputRight.style.zIndex = "3";
-    inputLeft.style.zIndex = "4";
+    inputLeft.addEventListener('input', () => {
+      rightBtn.style.zIndex = "1";
+      leftBtn.style.zIndex = "2";
+      inputRight.style.zIndex = "3";
+      inputLeft.style.zIndex = "4";
+      getLeftValue();
+    });
+
+    inputRight.addEventListener('input', () => {
+      rightBtn.style.zIndex = "2";
+      leftBtn.style.zIndex = "1";
+      inputRight.style.zIndex = "4";
+      inputLeft.style.zIndex = "3";
+      getRightValue();
+    });
+
     getLeftValue();
-  });
-
-  inputRight.addEventListener('input', () => {
-    rightBtn.style.zIndex = "2";
-    leftBtn.style.zIndex = "1";
-    inputRight.style.zIndex = "4";
-    inputLeft.style.zIndex = "3";
     getRightValue();
-  });
+  } catch (error) {
 
-  getLeftValue();
-  getRightValue();
+  }
 });;
 // range-slide
 
@@ -787,7 +789,6 @@ window.addEventListener('DOMContentLoaded', () => {
         item.classList.remove('active');
       });
       if (elem.dataset.card) {
-        elem.classList.add('active');
         productCard.forEach(value => {
           value.classList.add('inline');
         });
@@ -796,10 +797,21 @@ window.addEventListener('DOMContentLoaded', () => {
         productCard.forEach(value => {
           value.classList.remove('inline');
         });
-        elem.classList.add('active');
         productList.classList.remove('inline');
       }
+      elem.classList.add('active');
     });
+  });
+});;
+// range-slide
+
+window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('scroll', ()=> {
+    if(document.documentElement.scrollTop > 1000) {
+      document.querySelector('a.to-top-btn').style.opacity = '1';
+    } else {
+      document.querySelector('a.to-top-btn').style.opacity = '0';
+    }
   });
 });;
 // range-slide

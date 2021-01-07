@@ -81,6 +81,7 @@
 
     .swiper-slide__img-wrapper {
       height: 70px;
+
       @media (min-width: 450px) {
         height: 86px;
       }
@@ -197,6 +198,8 @@
   border-radius: 50%;
   cursor: pointer;
 
+
+
   &::before {
     position: absolute;
     content: "";
@@ -234,15 +237,29 @@
     background-color: #171717;
   }
 
-  &.yellow {
-    background-color: #ffc600;
+  &.silver {
+    background-color: #c0c0c0;
   }
+
+  &.yellow {
+    background-color: #ffd84a;
+  }
+
+  &.gold {
+    background-color: #ffc800;
+  }
+
   &.grey {
-    background-color: #efdfdf;
+    background-color: #808080;
   }
 
   &.pink {
     background-color: #ff00b4;
+  }
+
+  &.white {
+    background-color: #ffffff;
+    box-shadow: inset 0px 0px 4px 2px;
   }
 
   &.active {
@@ -251,6 +268,10 @@
       height: 24px;
       transition: .3s;
     }
+  }
+
+  &.white {
+    box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.7);
   }
 }
 
