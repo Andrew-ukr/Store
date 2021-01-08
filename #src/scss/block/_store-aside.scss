@@ -4,12 +4,30 @@
 
 .store__body {
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+  }
 }
 
 .store__aside {
   flex: 0 0 300px;
-  padding-right: 30px;
+  margin-bottom: 50px;
 
+  @media (min-width: 1000px) {
+    margin-bottom: 0px;
+    padding-right: 30px;
+  }
+}
+
+.store__aside-block-hover-btn{
+  border-radius: 4px;
+  background-color: #f6f7f8;
+  padding: 20px 20px 30px;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .store__aside-block {
@@ -21,7 +39,7 @@
     margin-top: 30px;
   }
 
-  &:nth-child(4) {
+  &:nth-child(3) {
     & .store__aside-block-list {
       display: flex;
       justify-content: space-between;
