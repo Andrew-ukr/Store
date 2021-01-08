@@ -140,16 +140,16 @@ window.addEventListener('DOMContentLoaded', () => {
     },
     breakpoints: {
       450: {
-        slidesPerView: 1.2
+        slidesPerView: 1
       },
       600: {
-        slidesPerView: 1.5
+        slidesPerView: 1.2
       },
       700: {
         slidesPerView: 2
       },
       850: {
-        slidesPerView: 2.5
+        slidesPerView: 2.2
       },
       1050: {
         slidesPerView: 3
@@ -321,6 +321,8 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   init();
+  checkVisibleBlocks();
+  hideBlocks();
 });;
 // BEST SELLER filter
 

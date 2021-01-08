@@ -94,4 +94,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   init();
+  checkVisibleBlocks();
+  hideBlocks();
 });

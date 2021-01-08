@@ -11,18 +11,21 @@
 .banner__body-wrapper {
   position: relative;
 
-  &::after {
+  .baner_img-wrapper {
     position: absolute;
-    content: '';
     width: 277px;
     height: 346px;
     bottom: 0;
     right: 0;
-    background: url(.././img/banner/iphone6s.png) center / contain;
 
     @media (min-width: 600px) {
       width: 553px;
       height: 692px;
+    }
+
+    img{
+      display: block;
+      width: 100%;
     }
   }
 }

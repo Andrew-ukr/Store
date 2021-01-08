@@ -1347,14 +1347,17 @@ button.more-btn {
   position: relative;
 }
 
-.banner__body-wrapper::after {
+.banner__body-wrapper .baner_img-wrapper {
   position: absolute;
-  content: '';
   width: 277px;
   height: 346px;
   bottom: 0;
   right: 0;
-  background: url(.././img/banner/iphone6s.png) center/contain;
+}
+
+.banner__body-wrapper .baner_img-wrapper img {
+  display: block;
+  width: 100%;
 }
 
 .banner__body {
@@ -3794,7 +3797,7 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 }
 
 @media (min-width: 600px) {
-  .banner__body-wrapper::after {
+  .banner__body-wrapper .baner_img-wrapper {
     width: 553px;
     height: 692px;
   }
@@ -4124,7 +4127,5 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 .webp .promo-item:nth-child(2)::after{ background-image: url(.././img/promo/oculus.webp); }
 
 .webp .promo-item:nth-child(3)::after{ background-image: url(.././img/promo/go-pro.webp); }
-
-.webp .banner__body-wrapper::after{ background: url(.././img/banner/iphone6s.webp) center/contain; }
 
 .webp .store__top-banner::after{ background: url(.././img/store/store-banner.webp); }
