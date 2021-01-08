@@ -745,7 +745,6 @@ window.addEventListener('DOMContentLoaded', () => {
           value.classList.remove('inline');
         });
         productList.classList.remove('inline');
-
       } 
     }
 
