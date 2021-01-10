@@ -3262,6 +3262,11 @@ input.checkbox:focus ~ .fake::before {
   -o-transition: .3s;
   transition: .3s;
   color: rgba(34, 38, 42, 0.35);
+  pointer-events: none;
+}
+
+.store__aside-block-list-item-value.checked {
+  color: #33a0ff;
 }
 
 .store__aside-block-list-item-value.goods__color-item::before {
