@@ -20,8 +20,8 @@ input[type="range"] {
 
   &::-webkit-slider-thumb {
     pointer-events: all;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     border-radius: 0;
     border: 0 none;
     background-color: red;
@@ -50,7 +50,7 @@ input[type="range"] {
 
 .range-slider {
   position: relative;
-  margin: 0 8px;
+  margin: 0 10px;
   height: 4px;
 }
 
@@ -76,8 +76,8 @@ input[type="range"] {
   left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #ffffff;
   background-color: rgb(46, 144, 229);
   border-radius: 50%;
@@ -89,8 +89,8 @@ input[type="range"] {
   top: 50%;
   transform: translate(50%, -50%);
   right: 25%;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #ffffff;
   background-color: rgb(46, 144, 229);
   border-radius: 50%;

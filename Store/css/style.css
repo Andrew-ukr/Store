@@ -3204,6 +3204,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .store__aside-block-list-item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3218,6 +3219,20 @@ input.checkbox:focus ~ .fake::before {
   -o-transition: .3s;
   transition: .3s;
   cursor: pointer;
+}
+
+.store__aside-block-list-item.checked {
+  color: #33a0ff;
+}
+
+.store__aside-block-list-item.checked::after {
+  position: absolute;
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: url(.././img/store/check-square-regular.svg) no-repeat;
+  left: -16px;
+  color: #33a0ff;
 }
 
 .store__aside-block-list-item:hover,
@@ -3280,8 +3295,8 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-thumb {
   pointer-events: all;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 0;
   border: 0 none;
   background-color: red;
@@ -3303,7 +3318,7 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 
 .range-slider {
   position: relative;
-  margin: 0 8px;
+  margin: 0 10px;
   height: 4px;
 }
 
@@ -3331,8 +3346,8 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #ffffff;
   background-color: #2e90e5;
   border-radius: 50%;
@@ -3346,8 +3361,8 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
       -ms-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
   right: 25%;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #ffffff;
   background-color: #2e90e5;
   border-radius: 50%;

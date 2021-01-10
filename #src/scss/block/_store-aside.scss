@@ -21,7 +21,7 @@
   }
 }
 
-.store__aside-block-hover-btn{
+.store__aside-block-hover-btn {
   border-radius: 4px;
   background-color: #f6f7f8;
   padding: 20px 20px 30px;
@@ -62,6 +62,7 @@
 .store__aside-block-list {}
 
 .store__aside-block-list-item {
+  position: relative;
   display: flex;
   justify-content: space-between;
   color: #262626;
@@ -70,6 +71,20 @@
   line-height: 16.8px;
   transition: .3s;
   cursor: pointer;
+
+  &.checked {
+    color: $hoverColor;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: url(.././img/store/check-square-regular.svg) no-repeat;
+      left: -16px;
+      color: $hoverColor;
+    }
+  }
 
   &:hover,
   &:focus,
