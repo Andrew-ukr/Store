@@ -85,8 +85,8 @@
 
               <div class="store__aside-block-price-filter">
 
-                <input class="store__aside-input-left" type="range" min="1" max="799" value="99">
-                <input class="store__aside-input-right" type="range" min="1" max="799" value="799">
+                <input class="store__aside-input-left" type="range" min="99" max="799" value="99">
+                <input class="store__aside-input-right" type="range" min="99" max="799" value="600">
 
                 <div class="store__aside-range-slider range-slider">
                   <div class="range-slider-track"></div>
@@ -99,27 +99,27 @@
             </div>
 
             <div class="store__aside-block">
-              <div class="store__aside-block-title">COLOR</div>
-              <ul class="store__aside-block-list">
-                <li class="store__aside-block-list-item"><span
+              <div class="store__aside-block-title" >COLOR</div>
+              <ul class="store__aside-block-list" data-filter-color='color-area'>
+                <li class="store__aside-block-list-item" data-filter-color="blue"><span
                     class="store__aside-block-list-item-value blue goods__color-item"></span>
                 </li>
-                <li class="store__aside-block-list-item"><span
+                <li class="store__aside-block-list-item" data-filter-color="red"><span
                     class="store__aside-block-list-item-value red goods__color-item"></span>
                 </li>
-                <li class="store__aside-block-list-item"><span
+                <li class="store__aside-block-list-item" data-filter-color="black"><span
                     class="store__aside-block-list-item-value black goods__color-item"></span>
                 </li>
-                <li class="store__aside-block-list-item"><span
+                <li class="store__aside-block-list-item" data-filter-color="yellow"><span
                     class="store__aside-block-list-item-value yellow goods__color-item"></span>
                 </li>
-                <li class="store__aside-block-list-item"><span
+                <li class="store__aside-block-list-item" data-filter-color="pink"><span
                     class="store__aside-block-list-item-value pink goods__color-item"></span>
                 </li>
-                <li class="store__aside-block-list-item"><span
+                <li class="store__aside-block-list-item" data-filter-color="grey"><span
                     class="store__aside-block-list-item-value grey goods__color-item"></span>
                 </li>
-                <li class="store__aside-block-list-item"><span
+                <li class="store__aside-block-list-item" data-filter-color="green"><span
                     class="store__aside-block-list-item-value green goods__color-item"></span>
                 </li>
               </ul>
@@ -350,7 +350,7 @@
               @@include('_watch-card.html')
 
               @@include('_accessories-card.html')
-              
+
               @@include('_accessories-card.html')
 
               @@include('_macbook-card.html')

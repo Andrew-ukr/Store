@@ -33,10 +33,11 @@
 @@include('./_media.js');
 // media
 
-@@include('./_range-slider.js');
-// range-slide
 
 @@include('./_store-filter.js');
+// range-slide
+
+@@include('./_range-slider.js');
 // range-slide
 
 @@include('./_to-top-btn.js');
