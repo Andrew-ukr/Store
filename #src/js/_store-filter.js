@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
+  const storeCenter = document.querySelector('.store__center')
   const viewBtn = document.querySelectorAll('.store__top-panel-icon');
-  const productCard = document.querySelectorAll('.product-card');
+  const productCard = storeCenter.querySelectorAll('.product-card');
   const productList = document.querySelector('.store__products-list');
   const productFilterList = document.querySelector('.store__aside-block-list');
   const colorFilterList = document.querySelector('[data-filter-color="color-area"]');
