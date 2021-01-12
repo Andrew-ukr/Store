@@ -1,7 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const storeCenter = document.querySelector('.store__center')
+  const storeCenter = document.querySelector('.store__center');
   const viewBtn = document.querySelectorAll('.store__top-panel-icon');
-  const productCard = storeCenter.querySelectorAll('.product-card');
+  try {
+    const productCard = storeCenter.querySelectorAll('.product-card');
+  } catch (error) {}
+
   const productList = document.querySelector('.store__products-list');
   const productFilterList = document.querySelector('.store__aside-block-list');
   const colorFilterList = document.querySelector('[data-filter-color="color-area"]');
@@ -222,21 +225,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function checkActiveColor() {
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
   try {
     showCardInline();
     hideAllProd();
@@ -244,10 +232,6 @@ window.addEventListener('DOMContentLoaded', () => {
     clickAction();
     getNumberValue();
     getFilterPrice();
-    checkActiveColor();
-    console.log(rangeMaxPrice, rangeMinPrice);
-
-
   } catch (error) {
 
   }

@@ -2982,6 +2982,11 @@ input.checkbox:focus ~ .fake::before {
   height: 130px;
 }
 
+.cart-body .cart-item__title {
+  text-align: center;
+  width: 300px;
+}
+
 .cart-result {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 </picture>
               </div>
               <div class="cart-item_text">
-                <div class="cart-item__title">${item.title}</div>
+                <div class="cart-item__title">${cutTitle(item.title)}</div>
                 <div class="cart-item__price">${item.price}</div>
               </div>
               <div class="cart-item__quantity-body">
@@ -209,8 +209,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-  checkCoupon();
+  function cutTitle(a, b = 10) {
+    if (a.length > b) {
+      a = `${a.slice(0, b)}…`;
+    }
+    return a;
+  }
 
   function init() {
     getNumOfGoods();
@@ -221,6 +225,8 @@ window.addEventListener('DOMContentLoaded', () => {
     changeQty(`.cart-item-hover`);
     changeQty(`.cart-item-big`);
     cartResultBlock();
+    checkCoupon();
+
   }
 
   cartData.forEach(item => {
@@ -267,6 +273,4 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   init();
-
-
 });

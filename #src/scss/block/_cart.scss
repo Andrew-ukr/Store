@@ -112,7 +112,10 @@
 
   .swiper-slide__img {}
 
-  .cart-item__title {}
+  .cart-item__title {
+    text-align: center;
+    width: 300px;
+  }
 
   .cart-item__price {}
 
