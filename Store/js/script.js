@@ -770,10 +770,7 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('DOMContentLoaded', () => {
   const storeCenter = document.querySelector('.store__center');
   const viewBtn = document.querySelectorAll('.store__top-panel-icon');
-  try {
-    const productCard = storeCenter.querySelectorAll('.product-card');
-  } catch (error) {}
-
+  const productCard = storeCenter.querySelectorAll('.product-card');
   const productList = document.querySelector('.store__products-list');
   const productFilterList = document.querySelector('.store__aside-block-list');
   const colorFilterList = document.querySelector('[data-filter-color="color-area"]');
@@ -903,7 +900,6 @@ window.addEventListener('DOMContentLoaded', () => {
           });
 
           filterItems.push(currentFilterItem);
-          console.log(filterItems);
           hideAllProd();
           showFilteredProd();
         }
@@ -914,7 +910,6 @@ window.addEventListener('DOMContentLoaded', () => {
               filterItems.splice(i, 1);
             }
           });
-          console.log(filterItems);
 
           if (filterItems.length === 0) {
             filterItems[0] = 'all';
@@ -947,7 +942,6 @@ window.addEventListener('DOMContentLoaded', () => {
           });
 
           filterColor.push(currentFilterItem);
-          console.log(filterColor);
           hideAllProd();
           showFilteredProd();
         }
@@ -958,7 +952,6 @@ window.addEventListener('DOMContentLoaded', () => {
               filterColor.splice(i, 1);
             }
           });
-          console.log(filterColor);
 
           if (filterColor.length === 0) {
             filterColor[0] = 'all';
@@ -987,7 +980,6 @@ window.addEventListener('DOMContentLoaded', () => {
       elem.addEventListener('change', () => {
         minPrice = document.querySelector('input.store__aside-input-left');
         maxPrice = document.querySelector('input.store__aside-input-right');
-        console.log(minPrice, maxPrice);
         hideAllProd();
         showFilteredProd();
       });
