@@ -3170,7 +3170,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .store__aside-block-hover-btn {
-  display: none;
+  display: block;
   border-radius: 4px;
   background-color: #f6f7f8;
   padding: 20px 20px 30px;
@@ -4184,8 +4184,13 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   }
 
   .store__aside {
+    display: block;
     margin-bottom: 0px;
     padding-right: 30px;
+  }
+
+  .store__aside-block-hover-btn {
+    display: none;
   }
 
   .store__top-banner {

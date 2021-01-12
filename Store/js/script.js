@@ -727,14 +727,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const productCard = document.querySelectorAll('.product-card');
     const productList = document.querySelector('.store__products-list');
 
-    if (window.innerWidth < 1000) {
-      filterBlocks.style.display = 'none';
-      filterBtn.style.display = 'block';
+    // if (window.innerWidth < 1000) {
+    //   filterBlocks.style.display = 'none';
+    //   filterBtn.style.display = 'block';
 
-    } else {
-      filterBlocks.style.display = 'block';
-      filterBtn.style.display = 'none';
-    }
+    // } else {
+    //   filterBlocks.style.display = 'block';
+    //   filterBtn.style.display = 'none';
+    // }
 
     filterBtn.addEventListener('click', () => {
       if (filterBlocks.style.display === 'block') {
