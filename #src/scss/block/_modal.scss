@@ -39,6 +39,7 @@
   transition: .3s;
 
   @media (min-width: 992px) {
+
     &:hover,
     &:focus,
     &:active {
@@ -53,10 +54,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 270px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   background-color: #ffffff;
+
+  @media (min-width: 450px) {
+    width: 300px;
+  }
 
   @media (min-width: 992px) {
     flex-direction: row;
@@ -69,7 +74,11 @@
   text-align: center;
 
   &:first-child {
-    padding: 63px 70px 32px;
+    padding: 63px 15px 32px;
+
+    @media (min-width: 750px) {
+      padding: 63px 70px 32px;
+    }
   }
 
   &:last-child {
@@ -82,19 +91,28 @@
 }
 
 .modal__title {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 600;
   letter-spacing: 1.2px;
   margin-bottom: 30px;
+
+  @media (min-width: 750px) {
+    font-size: 48px;
+  }
 }
 
 .modal__text {
   color: #262626;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.4px;
-  line-height: 28px;
+  line-height: 20px;
   text-align: center;
   margin-bottom: 60px;
+
+  @media (min-width: 750px) {
+    font-size: 16px;
+    line-height: 28px;
+  }
 }
 
 .modal__input-wrapper {
