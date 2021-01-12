@@ -276,7 +276,7 @@ body.lock {
 }
 
 .nav-list__items + .nav-list__items {
-  margin-left: 65px;
+  margin-left: 30px;
 }
 
 .nav-list__items-link {
@@ -2550,7 +2550,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .goods__tab-list-item + .goods__tab-list-item {
-  margin-left: 50px;
+  margin-left: 15px;
 }
 
 .goods__tab-list-item:hover,
@@ -3763,6 +3763,10 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 }
 
 @media (min-width: 550px) {
+  .nav-list__items + .nav-list__items {
+    margin-left: 65px;
+  }
+
   .top-panel {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -3832,6 +3836,10 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 
   .goods__tab-list {
     overflow: unset;
+  }
+
+  .goods__tab-list-item + .goods__tab-list-item {
+    margin-left: 50px;
   }
 
   .related {

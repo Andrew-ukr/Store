@@ -12,14 +12,19 @@
     overflow: unset;
     justify-content: center;
   }
-  &::-webkit-scrollbar{
+
+  &::-webkit-scrollbar {
     width: 0;
   }
 }
 
 .nav-list__items {
   &+& {
-    margin-left: 65px;
+    margin-left: 30px;
+
+    @media (min-width: 550px) {
+      margin-left: 65px;
+    }
   }
 }
 
@@ -55,7 +60,7 @@
       z-index: 10;
       left: 50%;
       transform: translateX(-50%);
-  
+
       &::after {
         content: url(.././img/icons/naw-arrow.svg);
         position: absolute;
@@ -73,11 +78,13 @@
     }
   }
 }
-.hover-menu__category-wrapper{
+
+.hover-menu__category-wrapper {
   display: flex;
 }
-.hover-menu__category{
-  width:350px;
+
+.hover-menu__category {
+  width: 350px;
   padding: 40px;
 }
 
@@ -87,25 +94,29 @@
   font-weight: 600;
   line-height: 28px;
 }
-.hover-menu__category-item-list{
-  width:350px;
+
+.hover-menu__category-item-list {
+  width: 350px;
   height: 230px;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
-.hover-menu__category-item{
-  width:150px;
+
+.hover-menu__category-item {
+  width: 150px;
 }
+
 .hover-menu__category-item-link {
   color: #262626;
   line-height: 46px;
   font-size: 14px;
   text-align: left;
   transition: .3s;
+
   &:hover,
   &:focus,
-  &:active{
+  &:active {
     transition: .3s;
     color: $hoverColor;
   }

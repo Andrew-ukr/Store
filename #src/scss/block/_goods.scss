@@ -590,7 +590,11 @@
   }
 
   &+& {
-    margin-left: 50px;
+    margin-left: 15px;
+
+    @media (min-width: 550px) {
+      margin-left: 50px;
+    }
   }
 
   &:hover,
