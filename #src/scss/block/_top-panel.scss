@@ -27,39 +27,17 @@
 }
 
 .top-panel__select-wrapper {
-  position: relative;
-
   &+& {
-    margin-left: 20px;
-  }
-
-  &::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 4px 3.5px 0 3.5px;
-    border-color: #22262a transparent transparent transparent;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    margin-left: 15px;
   }
 }
 
 .top-panel__select {
   letter-spacing: 0.35px;
   line-height: 16.8px;
-  text-align: center;
   text-transform: uppercase;
   appearance: none;
-  width: 50px;
   cursor: pointer;
-
-  &::-ms-expand {
-    display: none;
-  }
 }
 
 .store-bar {

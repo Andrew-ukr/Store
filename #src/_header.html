@@ -4,20 +4,23 @@
     <div class="container">
       <div class="top-panel">
         <div class="top-panel__info">
-          <div class="top-panel__select-wrapper">
-            <select class="top-panel__select" name="lang">
-              <option value="en" selected>EN</option>
-              <option value="pln">PLN</option>
-              <option value="ukr">UKR</option>
-            </select>
+          
+          <div class="top-panel__select-wrapper select-wrapper">
+            <div class="top-panel__select select">EN</div>
+            <ul class="top-panel__select-dropdown select__dropdown">
+              <li class="top-panel__select-dropdown-item select__dropdown-item" data-select-option="EN">English</li>
+              <li class="top-panel__select-dropdown-item select__dropdown-item" data-select-option="ES">Español</li>
+              <li class="top-panel__select-dropdown-item select__dropdown-item" data-select-option="DE">Deutsch</li>
+            </ul>
           </div>
 
-          <div class="top-panel__select-wrapper">
-            <select class="top-panel__select" name="currency">
-              <option value="usd" selected>USD</option>
-              <option value="pln">PLN</option>
-              <option value="uah">UAH</option>
-            </select>
+          <div class="top-panel__select-wrapper select-wrapper">
+            <div class="top-panel__select select">USD</div>
+            <ul class="top-panel__select-dropdown select__dropdown">
+              <li class="top-panel__select-dropdown-item select__dropdown-item" data-select-option="GBP">£ - GBP</li>
+              <li class="top-panel__select-dropdown-item select__dropdown-item" data-select-option="EUR">€ - EUR</li>
+              <li class="top-panel__select-dropdown-item select__dropdown-item" data-select-option="USD">$ - USD</li>
+            </ul>
           </div>
         </div>
 
