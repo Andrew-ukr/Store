@@ -3171,12 +3171,18 @@ input.checkbox:focus ~ .fake::before {
 
 .store__aside-block-hover-btn {
   display: block;
+  position: relative;
   border-radius: 4px;
   background-color: #f6f7f8;
   padding: 20px 20px 30px;
   width: 100%;
   text-transform: uppercase;
   margin-bottom: 30px;
+}
+
+.store__aside-block-hover-btn img {
+  width: 12px;
+  height: 12px;
 }
 
 .store__aside-block {
@@ -3483,6 +3489,11 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
           flex: 1 1 auto;
 }
 
+.store__top-panel-item img {
+  width: 15px;
+  height: 15px;
+}
+
 .store__top-panel-item:nth-child(1),
 .store__top-panel-item:nth-child(4) {
   display: none;
@@ -3570,6 +3581,11 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 
 .store__products-list.inline {
   grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+}
+
+.img-btn img {
+  width: 20px;
+  height: 20px;
 }
 
 .to-top-btn {

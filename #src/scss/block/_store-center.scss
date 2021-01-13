@@ -98,6 +98,11 @@
     @media (min-width: 700px) {}
   }
 
+  img{
+    width: 15px;
+    height: 15px;
+  }
+  
   &:nth-child(1),
   &:nth-child(4) {
     display: none;
@@ -200,5 +205,12 @@
 
   &.inline {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}
+
+.img-btn {
+  img{
+    width: 20px;
+    height: 20px;
   }
 }

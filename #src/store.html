@@ -27,6 +27,7 @@
 
           <button class="store__aside-block-hover-btn">
             filter
+            <span class="store__aside-block-hover-btn-img"><img src="img/store/filter-solid.svg" alt=""></span>
           </button>
 
           <aside class="store__aside">
@@ -34,46 +35,30 @@
             <div class="store__aside-block">
               <div class="store__aside-block-title">Apple</div>
               <ul class="store__aside-block-list">
-                <li class="store__aside-block-list-item">MacBook<span
-                    class="store__aside-block-list-item-value">99</span></li>
-                <li class="store__aside-block-list-item">iPad<span class="store__aside-block-list-item-value">99</span>
+                <li class="store__aside-block-list-item" data-list="item">MacBook<span
+                    class="store__aside-block-list-item-value">0</span></li>
+                <li class="store__aside-block-list-item" data-list="item">iPad<span
+                    class="store__aside-block-list-item-value">0</span>
                 </li>
-                <li class="store__aside-block-list-item">iPhone<span
-                    class="store__aside-block-list-item-value">99</span></li>
-                <li class="store__aside-block-list-item">Watсh<span class="store__aside-block-list-item-value">99</span>
+                <li class="store__aside-block-list-item" data-list="item">iPhone<span
+                    class="store__aside-block-list-item-value">0</span></li>
+                <li class="store__aside-block-list-item" data-list="item">Watсh<span
+                    class="store__aside-block-list-item-value">0</span>
                 </li>
-                <li class="store__aside-block-list-item">AirPods<span
-                    class="store__aside-block-list-item-value">99</span></li>
-                <li class="store__aside-block-list-item">TV<span class="store__aside-block-list-item-value">99</span>
+                <li class="store__aside-block-list-item" data-list="item">AirPods<span
+                    class="store__aside-block-list-item-value">0</span></li>
+                <li class="store__aside-block-list-item" data-list="item">TV<span
+                    class="store__aside-block-list-item-value">0</span>
                 </li>
-                <li class="store__aside-block-list-item">Mac<span class="store__aside-block-list-item-value">99</span>
+                <li class="store__aside-block-list-item" data-list="item">Mac<span
+                    class="store__aside-block-list-item-value">0</span>
                 </li>
-                <li class="store__aside-block-list-item">Display<span
-                    class="store__aside-block-list-item-value">99</span></li>
-                <li class="store__aside-block-list-item">Accessories<span
-                    class="store__aside-block-list-item-value">99</span></li>
+                <li class="store__aside-block-list-item" data-list="item">Display<span
+                    class="store__aside-block-list-item-value">0</span></li>
+                <li class="store__aside-block-list-item" data-list="item">Accessories<span
+                    class="store__aside-block-list-item-value">0</span></li>
               </ul>
             </div>
-
-            <!-- <div class="store__aside-block">
-              <div class="store__aside-block-title">ACCESORIES</div>
-              <ul class="store__aside-block-list">
-                <li class="store__aside-block-list-item">Apple Car <span
-                    class="store__aside-block-list-item-value">2</span></li>
-                <li class="store__aside-block-list-item">Air port & wireless <span
-                    class="store__aside-block-list-item-value">2</span></li>
-                <li class="store__aside-block-list-item">Cables & Docks<span
-                    class="store__aside-block-list-item-value">2</span></li>
-                <li class="store__aside-block-list-item">Cases & Films <span
-                    class="store__aside-block-list-item-value">2</span></li>
-                <li class="store__aside-block-list-item">Charging Devices <span
-                    class="store__aside-block-list-item-value">2</span></li>
-                <li class="store__aside-block-list-item">Connected home <span
-                    class="store__aside-block-list-item-value">2</span></li>
-                <li class="store__aside-block-list-item">Headphones<span
-                    class="store__aside-block-list-item-value">2</span></li>
-              </ul>
-            </div> -->
 
             <div class="store__aside-block">
               <div class="store__aside-block-title">PRICES</div>
@@ -99,7 +84,7 @@
             </div>
 
             <div class="store__aside-block">
-              <div class="store__aside-block-title" >COLOR</div>
+              <div class="store__aside-block-title">COLOR</div>
               <ul class="store__aside-block-list" data-filter-color='color-area'>
                 <li class="store__aside-block-list-item" data-filter-color="blue"><span
                     class="store__aside-block-list-item-value blue goods__color-item"></span>
@@ -125,12 +110,6 @@
               </ul>
             </div>
 
-            <!-- <div class="store__aside-block">
-              <button class="store__aside-block-btn">
-                more
-              </button>
-            </div> -->
-
           </aside>
 
           <div class="store__center">
@@ -140,10 +119,15 @@
               <div class="store__top-banner-link ">SHOP NOW</div>
             </div>
 
+            <div class="img-btn">
+              <img class="img-btn-btn" src="img/store/filter-solid.svg" alt="">
+            </div>
+
             <div class="store__top-panel">
               <div class="store__top-panel-item">
                 <span class="store__top-panel-text">13 Items</span>
               </div>
+
               <div class="store__top-panel-item">
                 <span class="store__top-panel-text">Sort By</span>
                 <select class="store__top-panel-sort" name="sort">
@@ -222,7 +206,7 @@
               @@include('_macbook-card.html')
 
               @@include('_mac-card.html')
-              
+
               @@include('_iphone-card-black.html')
 
               @@include('_ipad-card.html')
@@ -266,7 +250,7 @@
               @@include('_watch-card.html')
 
               @@include('_mac-card.html')
-              
+
               @@include('_accessories-card.html')
 
               @@include('_ipad-card.html')
@@ -310,7 +294,7 @@
               @@include('_accessories-card.html')
 
               @@include('_mac-card.html')
-              
+
               @@include('_macbook-card.html')
 
               @@include('_iphone-card.html')
@@ -384,7 +368,7 @@
               @@include('_accessories-card.html')
 
               @@include('_mac-card.html')
-              
+
               @@include('_macbook-card.html')
 
               @@include('_iphone-card.html')

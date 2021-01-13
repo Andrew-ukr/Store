@@ -430,6 +430,14 @@ window.addEventListener('DOMContentLoaded', () => {
   } catch (error) {
 
   }
+
+  let imgBtn = document.querySelector('.img-btn-btn');
+  let select = document.querySelector('.store__top-panel-sort');
+
+  imgBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    select.select();
+  });
 });;
 // select 
 
@@ -986,6 +994,19 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function initProdNumber() {
+    let ListItem = document.querySelectorAll('[data-list="item"]');
+    ListItem.forEach(elem => {
+      let counter = 0; 
+      productCard.forEach(item =>{
+        if (item.classList.contains(elem.firstChild.textContent.toLowerCase())) {
+          counter++;
+        }
+      });
+      elem.lastElementChild.innerText = `${counter}`;
+    });
+  }
+
   try {
     showCardInline();
     hideAllProd();
@@ -993,6 +1014,7 @@ window.addEventListener('DOMContentLoaded', () => {
     clickAction();
     getNumberValue();
     getFilterPrice();
+    initProdNumber();
   } catch (error) {
 
   }

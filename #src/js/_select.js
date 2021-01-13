@@ -26,4 +26,12 @@ window.addEventListener('DOMContentLoaded', () => {
   } catch (error) {
 
   }
+
+  let imgBtn = document.querySelector('.img-btn-btn');
+  let select = document.querySelector('.store__top-panel-sort');
+
+  imgBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    select.select();
+  });
 });
