@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const productList = document.querySelector('.store__products-list');
   const productFilterList = document.querySelector('.store__aside-block-list');
   const colorFilterList = document.querySelector('[data-filter-color="color-area"]');
-  // const showNumberSelect = document.querySelector('select.store__top-panel-show');
+  const selectWrapper = document.querySelectorAll('.select-wrapper');
+  const selectDropdownAll = document.querySelectorAll('.select__dropdown');
   let filterItems = ['all'];
   let filterColor = ['all'];
   let showNumber = 12;
@@ -103,6 +104,19 @@ window.addEventListener('DOMContentLoaded', () => {
       filteredCount++;
     });
 
+    let noProduct = document.querySelector('.cart-no-product');
+    if (noProduct) {
+      noProduct.remove();
+    }
+
+    if (filteredCount === 0) {
+      let noProductView = document.createElement('div');
+      noProductView.classList.add('cart-no-product');
+      noProductView.innerText = 'No product';
+      storeCenter.append(noProductView);
+      console.log('no product');
+    } 
+
     setFilteredCount();
   }
 
@@ -196,14 +210,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // function getNumberValue() {
-  //   showNumberSelect.addEventListener('change', () => {
-  //     showNumber = showNumberSelect.value;
-  //     hideAllProd();
-  //     showFilteredProd();
-  //   });
-  // }
-
   function getFilterPrice() {
     priceRange = document.querySelectorAll('input[type="range"]');
 
@@ -220,8 +226,8 @@ window.addEventListener('DOMContentLoaded', () => {
   function initProdNumber() {
     let ListItem = document.querySelectorAll('[data-list="item"]');
     ListItem.forEach(elem => {
-      let counter = 0; 
-      productCard.forEach(item =>{
+      let counter = 0;
+      productCard.forEach(item => {
         if (item.classList.contains(elem.firstChild.textContent.toLowerCase())) {
           counter++;
         }
@@ -230,12 +236,56 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  selectWrapper.forEach(elem => {
+
+    let selectDropdown = elem.querySelector('.select__dropdown');
+    let select = elem.querySelector('.select');
+
+    elem.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      if (e.target && select) {
+        if (selectDropdown.classList.contains('select__dropdown-active')) {
+          selectDropdownAll.forEach(elem => {
+            elem.classList.remove('select__dropdown-active');
+          });
+          selectDropdown.classList.remove('select__dropdown-active');
+        } else {
+          selectDropdownAll.forEach(elem => {
+            elem.classList.remove('select__dropdown-active');
+          });
+          selectDropdown.classList.add('select__dropdown-active');
+        }
+      }
+
+      if (e.target && e.target.classList.contains('select__dropdown-item')) {
+        select.innerText = `${e.target.innerText}`;
+        selectDropdown.classList.remove('select__dropdown-active');
+        console.log(e.target.dataset.selectView);
+        if (e.target.dataset.selectView) {
+          showNumber = `${e.target.dataset.selectView}`;
+        }
+        hideAllProd();
+        showFilteredProd();
+      }
+    });
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target !== selectWrapper) {
+      console.log(4);
+      selectDropdownAll.forEach(elem => {
+        elem.classList.remove('select__dropdown-active');
+      });
+    }
+  });
+
   try {
     showCardInline();
     hideAllProd();
     showFilteredProd();
     clickAction();
-    // getNumberValue();
     getFilterPrice();
     initProdNumber();
   } catch (error) {

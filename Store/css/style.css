@@ -3647,6 +3647,10 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   background-color: #fafafb;
 }
 
+.select-input {
+  display: none;
+}
+
 @media (min-width: 360px) {
   .goods__col:first-child {
     width: 300px;
