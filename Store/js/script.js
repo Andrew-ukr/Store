@@ -883,7 +883,6 @@ window.addEventListener('DOMContentLoaded', () => {
       noProductView.classList.add('cart-no-product');
       noProductView.innerText = 'No product';
       storeCenter.append(noProductView);
-      console.log('no product');
     } 
 
     setFilteredCount();
@@ -1029,9 +1028,12 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       if (e.target && e.target.classList.contains('select__dropdown-item')) {
-        select.innerText = `${e.target.innerText}`;
+        if (e.target.dataset.selectOption) {
+          select.innerText = `${e.target.dataset.selectOption}`;
+        } else{
+          select.innerText = `${e.target.innerText}`;
+        }
         selectDropdown.classList.remove('select__dropdown-active');
-        console.log(e.target.dataset.selectView);
         if (e.target.dataset.selectView) {
           showNumber = `${e.target.dataset.selectView}`;
         }
@@ -1043,7 +1045,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('click', (e) => {
     if (e.target !== selectWrapper) {
-      console.log(4);
       selectDropdownAll.forEach(elem => {
         elem.classList.remove('select__dropdown-active');
       });

@@ -3468,6 +3468,18 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   cursor: pointer;
   border-radius: 4px;
   border: 3px solid #ebebeb;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.store__top-panel-select-wrapper:hover,
+.store__top-panel-select-wrapper:focus,
+.store__top-panel-select-wrapper:active {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  border-color: rgba(51, 160, 255, 0.2);
 }
 
 .store__top-panel-select {
