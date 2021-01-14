@@ -3612,6 +3612,7 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   width: 30px;
   height: 30px;
   background: url(.././img/to-top-arrow.svg) center no-repeat;
+  z-index: 20;
 }
 
 .select-wrapper {
