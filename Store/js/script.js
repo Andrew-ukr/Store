@@ -881,9 +881,9 @@ window.addEventListener('DOMContentLoaded', () => {
     if (filteredCount === 0) {
       let noProductView = document.createElement('div');
       noProductView.classList.add('cart-no-product');
-      noProductView.innerText = 'No product';
+      noProductView.innerText = 'No products';
       storeCenter.append(noProductView);
-    } 
+    }
 
     setFilteredCount();
   }
@@ -1004,7 +1004,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   selectWrapper.forEach(elem => {
 
     let selectDropdown = elem.querySelector('.select__dropdown');
@@ -1013,7 +1012,7 @@ window.addEventListener('DOMContentLoaded', () => {
     elem.addEventListener('click', (e) => {
       e.stopPropagation();
 
-      if (e.target && select) {
+      if (e.target && select || e.target && selectImg) {
         if (selectDropdown.classList.contains('select__dropdown-active')) {
           selectDropdownAll.forEach(elem => {
             elem.classList.remove('select__dropdown-active');
@@ -1030,7 +1029,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (e.target && e.target.classList.contains('select__dropdown-item')) {
         if (e.target.dataset.selectOption) {
           select.innerText = `${e.target.dataset.selectOption}`;
-        } else{
+        } else {
           select.innerText = `${e.target.innerText}`;
         }
         selectDropdown.classList.remove('select__dropdown-active');
@@ -1050,6 +1049,17 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // let selectImg = document.querySelectorAll('.select-icon');
+
+  // selectImg.forEach(elem => {
+  //   elem.addEventListener('click', ()=>{
+  //   let selectDropdown = elem.querySelector('.select__dropdown');
+
+  //   });
+  // });
+
+
 
   try {
     showCardInline();

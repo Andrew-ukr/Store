@@ -272,7 +272,7 @@ body.lock {
 }
 
 .nav-list::-webkit-scrollbar {
-  width: 0;
+  display: none;
 }
 
 .nav-list__items + .nav-list__items {
@@ -3148,10 +3148,10 @@ input.checkbox:focus ~ .fake::before {
   position: relative;
   border-radius: 4px;
   background-color: #f6f7f8;
-  padding: 20px 20px 30px;
+  padding: 20px;
   width: 100%;
   text-transform: uppercase;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .store__aside-block-hover-btn img {
@@ -3432,16 +3432,20 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-radius: 4px;
   background-color: #f6f7f8;
-  padding: 15px 0 0 20px;
+  padding: 0px 20px 0 20px;
+  height: 56px;
   letter-spacing: 0.35px;
   line-height: 16.8px;
   text-align: center;
@@ -3449,7 +3453,9 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 }
 
 .store__top-panel-text {
+  display: none;
   margin-right: 15px;
+  white-space: nowrap;
 }
 
 .store__top-panel-select-wrapper {
@@ -3467,7 +3473,6 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   text-align: left;
   cursor: pointer;
   border-radius: 4px;
-  border: 3px solid #ebebeb;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -3484,6 +3489,7 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 
 .store__top-panel-select {
   width: 100%;
+  opacity: 0;
 }
 
 .store__top-panel-select-dropdown {
@@ -3495,6 +3501,7 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 }
 
 .store__top-panel-item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3518,18 +3525,29 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
           flex: 1 1 auto;
 }
 
-.store__top-panel-item img {
-  width: 15px;
-  height: 15px;
+.store__top-panel-item .hiden-select-icon {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+      -ms-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+
+.store__top-panel-item .hiden-select-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .store__top-panel-item:nth-child(1),
 .store__top-panel-item:nth-child(4) {
   display: none;
-}
-
-.store__top-panel-item + .store__top-panel-item {
-  margin-left: 40px;
 }
 
 .store__top-panel-icon {
@@ -3973,15 +3991,26 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   }
 
   .store__top-panel {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    height: 58px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     padding: 0px 0 0 20px;
+  }
+
+  .store__top-panel-text {
+    display: block;
+  }
+
+  .store__top-panel-select-wrapper {
+    border: 3px solid #ebebeb;
+  }
+
+  .store__top-panel-select {
+    opacity: 1;
+  }
+
+  .store__top-panel-item .hiden-select-icon {
+    display: none;
   }
 
   .store__top-panel-item:nth-child(1),
@@ -3989,6 +4018,10 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .store__top-panel-item + .store__top-panel-item {
+    margin-left: 40px;
   }
 }
 
