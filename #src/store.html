@@ -126,22 +126,29 @@
 
               <div class="store__top-panel-item">
                 <span class="store__top-panel-text">Sort By</span>
-                <select class="store__top-panel-sort" name="sort">
-                  <option value="popular" selected>Popular</option>
-                  <option value="name">Name</option>
-                  <option value="price">Price</option>
-                  <option value="newest">Newest</option>
-                </select>
+                <div class="store__top-panel-select-wrapper select-wrapper">
+                  <div class="store__top-panel-select select">Popular</div>
+                  <ul class="store__top-panel-select-dropdown select__dropdown">
+                    <li class=" select__dropdown-item" data-select-option="Popular">Popular</li>
+                    <li class=" select__dropdown-item" data-select-option="Name">Name</li>
+                    <li class=" select__dropdown-item" data-select-option="Newest">Newest</li>
+                  </ul>
+                </div>
               </div>
+
               <div class="store__top-panel-item">
                 <span class="store__top-panel-text">Show</span>
-                <select class="store__top-panel-show" name="show">
-                  <option value="12" selected>12</option>
-                  <option value="24">24</option>
-                  <option value="48">48</option>
-                  <option value="Infinity">all</option>
-                </select>
+                <div class="store__top-panel-select-wrapper select-wrapper">
+                  <div class="store__top-panel-select select">12</div>
+                  <ul class="store__top-panel-select-dropdown select__dropdown">
+                    <li class=" select__dropdown-item" data-select-option="12">12</li>
+                    <li class=" select__dropdown-item" data-select-option="24">24</li>
+                    <li class=" select__dropdown-item" data-select-option="48">48</li>
+                    <li class=" select__dropdown-item" data-select-option="all">all</li>
+                  </ul>
+                </div>
               </div>
+              
               <div class="store__top-panel-item">
                 <button class="store__top-panel-icon active">
                   <svg class="store__top-panel-icon-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20"

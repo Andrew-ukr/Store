@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const productList = document.querySelector('.store__products-list');
   const productFilterList = document.querySelector('.store__aside-block-list');
   const colorFilterList = document.querySelector('[data-filter-color="color-area"]');
-  const showNumberSelect = document.querySelector('select.store__top-panel-show');
+  // const showNumberSelect = document.querySelector('select.store__top-panel-show');
   let filterItems = ['all'];
   let filterColor = ['all'];
   let showNumber = 12;
@@ -196,13 +196,13 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function getNumberValue() {
-    showNumberSelect.addEventListener('change', () => {
-      showNumber = showNumberSelect.value;
-      hideAllProd();
-      showFilteredProd();
-    });
-  }
+  // function getNumberValue() {
+  //   showNumberSelect.addEventListener('change', () => {
+  //     showNumber = showNumberSelect.value;
+  //     hideAllProd();
+  //     showFilteredProd();
+  //   });
+  // }
 
   function getFilterPrice() {
     priceRange = document.querySelectorAll('input[type="range"]');
@@ -235,7 +235,7 @@ window.addEventListener('DOMContentLoaded', () => {
     hideAllProd();
     showFilteredProd();
     clickAction();
-    getNumberValue();
+    // getNumberValue();
     getFilterPrice();
     initProdNumber();
   } catch (error) {

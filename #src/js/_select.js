@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const selectWrapper = document.querySelectorAll('.select-wrapper');
-  const selectDropdow = document.querySelectorAll('.select__dropdown');
+  const selectDropdownAll = document.querySelectorAll('.select__dropdown');
 
   selectWrapper.forEach(elem => {
 
@@ -36,15 +36,24 @@ window.addEventListener('DOMContentLoaded', () => {
     let select = elem.querySelector('.select');
 
     elem.addEventListener('click', (e) => {
-      selectDropdow.forEach(elem => {
-        elem.classList.remove('select__dropdown-active');
-      });
       e.stopPropagation();
       console.log(1);
 
       if (e.target && select) {
         console.log(2);
-        selectDropdown.classList.toggle('select__dropdown-active');
+        if (selectDropdown.classList.contains('select__dropdown-active')) {
+          selectDropdownAll.forEach(elem => {
+            elem.classList.remove('select__dropdown-active');
+          });
+          selectDropdown.classList.remove('select__dropdown-active');
+          console.log(2.1);
+        } else {
+          selectDropdownAll.forEach(elem => {
+            elem.classList.remove('select__dropdown-active');
+          });
+          selectDropdown.classList.add('select__dropdown-active');
+          console.log(2.2);
+        }
       }
 
       if (e.target && e.target.classList.contains('select__dropdown-item')) {
@@ -58,7 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('click', (e) => {
     if (e.target !== selectWrapper) {
       console.log(4);
-      selectDropdow.forEach(elem => {
+      selectDropdownAll.forEach(elem => {
         elem.classList.remove('select__dropdown-active');
       });
     }
