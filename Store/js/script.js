@@ -767,11 +767,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });;
 // media
 
-
 window.addEventListener('DOMContentLoaded', () => {
   const storeCenter = document.querySelector('.store__center');
   const viewBtn = document.querySelectorAll('.store__top-panel-icon');
-  const productCard = storeCenter.querySelectorAll('.product-card');
   const productList = document.querySelector('.store__products-list');
   const productFilterList = document.querySelector('.store__aside-block-list');
   const colorFilterList = document.querySelector('[data-filter-color="color-area"]');
@@ -788,6 +786,8 @@ window.addEventListener('DOMContentLoaded', () => {
   let filteredCount = 0;
 
   function showCardInline() {
+  const productCard = storeCenter.querySelectorAll('.product-card');
+
     viewBtn.forEach(elem => {
       elem.addEventListener('click', () => {
         viewBtn.forEach(item => {
@@ -820,6 +820,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function hideAllProd() {
+  const productCard = storeCenter.querySelectorAll('.product-card');
     productCard.forEach(elem => {
       elem.classList.remove('active');
       elem.classList.remove('user-filter');
@@ -827,6 +828,8 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function showFilteredProd() {
+    const productCard = storeCenter.querySelectorAll('.product-card');
+
     filterItems.forEach(elem => {
       productCard.forEach(productCardItem => {
         let prodCardPrice = productCardItem.querySelector('[data-cart="price"]').textContent.replace(/\D/, '');
@@ -993,6 +996,8 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function initProdNumber() {
+    const productCard = storeCenter.querySelectorAll('.product-card');
+
     let ListItem = document.querySelectorAll('[data-list="item"]');
     ListItem.forEach(elem => {
       let counter = 0;
