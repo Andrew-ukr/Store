@@ -30,11 +30,11 @@
     "gulp-webpcss": "^1.1.1"
   },
   "dependencies": {
-    "swiper": "^6.4.1",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "aos": "^2.3.4",
-    "owl.carousel": "^2.3.4",
     "jquery": "^3.5.1",
-    "slick-carousel": "^1.8.1"
+    "owl.carousel": "^2.3.4",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^6.4.1"
   }
 }

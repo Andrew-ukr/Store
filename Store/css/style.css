@@ -3126,6 +3126,7 @@ input.checkbox:focus ~ .fake::before {
 }
 
 .store__body {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4310,6 +4311,10 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   }
 
   .store__aside {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 750px;
     display: block;
     margin-bottom: 0px;
     padding-right: 30px;
