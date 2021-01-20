@@ -3271,6 +3271,16 @@ input.checkbox:focus ~ .fake::before {
   text-transform: uppercase;
 }
 
+.store__more-btn {
+  margin-top: 30px;
+  width: 100%;
+  height: 46px;
+  border-radius: 4px;
+  background-color: #f6f7f8;
+  color: #33a0ff;
+  text-transform: uppercase;
+}
+
 .store__aside-block-price-filter {
   position: relative;
   margin-top: 23px;

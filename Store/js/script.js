@@ -784,9 +784,13 @@ window.addEventListener('DOMContentLoaded', () => {
   let rangeMinPrice = 999999999;
   let priceRange = document.querySelectorAll('input[type="range"]');
   let filteredCount = 0;
+  let activeFilteredCount = 0;
+  let moreBtnCounter = 2;
+  const moreBtn = document.querySelector('.store__more-btn');
+
 
   function showCardInline() {
-  const productCard = storeCenter.querySelectorAll('.product-card');
+    const productCard = storeCenter.querySelectorAll('.product-card');
 
     viewBtn.forEach(elem => {
       elem.addEventListener('click', () => {
@@ -820,14 +824,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function hideAllProd() {
-  const productCard = storeCenter.querySelectorAll('.product-card');
+    const productCard = storeCenter.querySelectorAll('.product-card');
     productCard.forEach(elem => {
       elem.classList.remove('active');
       elem.classList.remove('user-filter');
     });
   }
 
-  function showFilteredProd() {
+  function showFilteredProd(a = showNumber) {
     const productCard = storeCenter.querySelectorAll('.product-card');
 
     filterItems.forEach(elem => {
@@ -870,9 +874,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     productCardItemUserFilter = document.querySelectorAll('.user-filter');
     filteredCount = 0;
+    activeFilteredCount = 0;
     productCardItemUserFilter.forEach((item, i) => {
-      if (i + 1 <= showNumber) {
+      if (i + 1 <= a) {
         item.classList.add('active');
+        activeFilteredCount++;
       }
       filteredCount++;
     });
@@ -887,6 +893,11 @@ window.addEventListener('DOMContentLoaded', () => {
       noProductView.classList.add('cart-no-product');
       noProductView.innerText = 'No products';
       storeCenter.append(noProductView);
+    }
+    if (filteredCount > activeFilteredCount) {
+      moreBtn.style.display = 'block';
+    } else {
+      moreBtn.style.display = 'none';
     }
 
     setFilteredCount();
@@ -1016,9 +1027,11 @@ window.addEventListener('DOMContentLoaded', () => {
     let select = elem.querySelector('.select');
 
     elem.addEventListener('click', (e) => {
+      moreBtnCounter = 2;
+
       e.stopPropagation();
 
-      if (e.target && select || e.target && selectImg) {
+      if (e.target && select) {
         if (selectDropdown.classList.contains('select__dropdown-active')) {
           selectDropdownAll.forEach(elem => {
             elem.classList.remove('select__dropdown-active');
@@ -1056,16 +1069,16 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // let selectImg = document.querySelectorAll('.select-icon');
 
-  // selectImg.forEach(elem => {
-  //   elem.addEventListener('click', ()=>{
-  //   let selectDropdown = elem.querySelector('.select__dropdown');
-
-  //   });
-  // });
-
-
+  function launchMoreBtn() {
+    let newShowNumber;
+    moreBtn.addEventListener('click', () => {
+      newShowNumber = showNumber * moreBtnCounter;
+      moreBtnCounter++;
+      hideAllProd();
+      showFilteredProd(newShowNumber);
+    });
+  }
 
   try {
     showCardInline();
@@ -1074,6 +1087,7 @@ window.addEventListener('DOMContentLoaded', () => {
     clickAction();
     getFilterPrice();
     initProdNumber();
+    launchMoreBtn();
   } catch (error) {
 
   }
