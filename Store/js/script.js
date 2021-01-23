@@ -684,9 +684,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let chechOutBtn = document.querySelector('button.cart-result__total-item-btn');
     chechOutBtn.addEventListener('click', () => {
       document.querySelector('.modal__client-info').style.display = 'flex';
-      console.log(document.querySelector('button.input-submit').disabled);
-
-      // document.querySelector('button.input-submit').disabled = 'true';
     });
 
   }
@@ -699,27 +696,22 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
   }
-let validInput = false;
+  let nameInput = document.querySelector('input#name');
+  let emailInput = document.querySelector('input#mail');
+  let phoneInput = document.querySelector('input#phone');
+  let checkboxInput = document.querySelector('input.input-checkbox');
 
   function validationInput() {
-    let nameInput = document.querySelector('input#name');
-    let emailInput = document.querySelector('input#mail');
-    let phoneInput = document.querySelector('input#phone');
 
     nameInput.addEventListener('change', () => {
       if (nameInput.value === '') {
         nameInput.style.cssText = `
         box-shadow: 0 0 5px 5px rgb(234, 154, 157);
         `;
-        validInput = false;
-        console.log(validInput);
       } else {
         nameInput.style.cssText = `
         box-shadow: unset;
         `;
-        validInput = true;
-        console.log(validInput);
-
       }
     });
 
@@ -729,15 +721,10 @@ let validInput = false;
         emailInput.style.cssText = `
         box-shadow: 0 0 5px 5px rgb(234, 154, 157);
         `;
-        validInput = false;
-        console.log(validInput);
-
       } else {
         emailInput.style.cssText = `
         box-shadow: unset;
         `;
-        validInput = true;
-        console.log(validInput);
       }
     });
 
@@ -747,15 +734,22 @@ let validInput = false;
         phoneInput.style.cssText = `
         box-shadow: 0 0 5px 5px rgb(234, 154, 157);
         `;
-        validInput = false;
-        console.log(validInput);
-
       } else {
         phoneInput.style.cssText = `
         box-shadow: unset;
         `;
-        validInput = true;
-console.log(validInput);
+      }
+    });
+    
+    checkboxInput.addEventListener('change', () => {
+      if (!checkboxInput.checked)  {
+        checkboxInput.style.cssText = `
+        box-shadow: 0 0 5px 5px rgb(234, 154, 157);
+        `;
+      } else {
+        checkboxInput.style.cssText = `
+        box-shadow: unset;
+        `;
       }
     });
 
@@ -764,37 +758,73 @@ console.log(validInput);
   function sendForm(params) {
     let submitBtn = document.querySelector('button.input-submit');
     submitBtn.addEventListener('click', (e) => {
-
       e.preventDefault();
+      
       let form = document.querySelector('form.modal__client-form');
-      form.classList.add('loading');
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username: "dzonlennon25@gmail.com",
-        Password: "dqwrkwkturmbrwib",
-        To: 'dzonlennon25@gmail.com',
-        From: "dzonlennon25@gmail.com",
-        Subject: "Order",
-        Body: mailBody(),
-      }).then(() => {
-        form.classList.remove('loading');
-        form.classList.add('sucsses');
-        setTimeout(() => {
-          form.classList.remove('sucsses');
-          document.querySelector('.modal__client-info').style.display = 'none';
-          cart = [];
-          localStorage.setItem('cartItems', JSON.stringify(cart));
-          init();
-        }, 2000);
-      }).catch(() => {
-        form.classList.remove('loading');
-        form.classList.add('error');
-        setTimeout(() => {
-          form.classList.remove('error');
-        }, 2000);
-      }).finally(() => {
-        form.reset();
+      let inputForm = form.querySelectorAll('input');
+      let checkboxInput = form.querySelector('input.input-checkbox');
+      let counter = 0;
+
+      inputForm.forEach(elem => {
+        if (elem.style.boxShadow === `rgb(234, 154, 157) 0px 0px 5px 5px` || elem.value === '') {
+          elem.style.cssText = `
+          box-shadow: 0 0 5px 5px rgb(234, 154, 157);
+          `;
+          counter++;
+        } else {
+          elem.style.cssText = `
+          box-shadow: unset;
+          `;
+        }
       });
+
+      if (checkboxInput.checked === false) {
+        checkboxInput.style.cssText = `
+        box-shadow: 0 0 5px 5px rgb(234, 154, 157);
+        `;
+        counter++;
+      } else {
+        checkboxInput.style.cssText = `
+        box-shadow: unset;
+        `;
+      }
+
+
+      if (counter === 0) {
+        checkboxInput.style.cssText = `
+        unset;
+        `;
+        form.classList.add('loading');
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "dzonlennon25@gmail.com",
+          Password: "dqwrkwkturmbrwib",
+          To: 'dzonlennon25@gmail.com',
+          From: "dzonlennon25@gmail.com",
+          Subject: "Order",
+          Body: mailBody(),
+        }).then(() => {
+          form.classList.remove('loading');
+          form.classList.add('sucsses');
+          setTimeout(() => {
+            form.classList.remove('sucsses');
+            document.querySelector('.modal__client-info').style.display = 'none';
+            cart = [];
+            localStorage.setItem('cartItems', JSON.stringify(cart));
+            init();
+          }, 2000);
+        }).catch(() => {
+          form.classList.remove('loading');
+          form.classList.add('error');
+          setTimeout(() => {
+            form.classList.remove('error');
+          }, 2000);
+        }).finally(() => {
+          form.reset();
+        });
+      } else {
+        showCartMassage('Wrong filled form', '#ffa9a9');
+      }
     });
   }
 
