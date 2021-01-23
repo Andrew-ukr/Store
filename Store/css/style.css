@@ -1480,7 +1480,6 @@ button.more-btn {
 .news__item-title {
   font-size: 18px;
   font-weight: 700;
-  line-height: 43.2px;
   margin-bottom: 15px;
 }
 
@@ -3134,6 +3133,9 @@ input.checkbox:focus ~ .fake::before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
 }
 
 .store__aside {
@@ -3694,6 +3696,151 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   display: none;
 }
 
+.modal__client-info {
+  position: fixed;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(34, 38, 42, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 21;
+}
+
+.modal__client-form {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 270px;
+  -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  background-color: #ffffff;
+  padding: 20px 10px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.modal__client-form.loading::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url(.././img/icons/loading.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.modal__client-form.sucsses::after {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  content: 'sucsses';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #bbfca1;
+}
+
+.modal__client-form.error::after {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  content: 'error';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #db6a6a;
+}
+
+.input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 10px;
+}
+
+.input-label {
+  white-space: nowrap;
+  width: 70px;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: 2px solid #f1f3f4;
+  padding: 5px;
+}
+
+.input:hover,
+.input:focus,
+.input:active {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-btns-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.input-btns-wrapper button {
+  width: 50%;
+  text-transform: uppercase;
+}
+
+.input-checkbox {
+  margin-right: 10px;
+}
+
 @media (min-width: 360px) {
   .goods__col:first-child {
     width: 300px;
@@ -4054,6 +4201,10 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 }
 
 @media (min-width: 768px) {
+  .news__item-title {
+    line-height: 43.2px;
+  }
+
   .goods__color-item + .goods__color-item {
     margin-left: 20px;
   }
@@ -4324,6 +4475,9 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
     height: 750px;
     display: block;
     margin-bottom: 0px;

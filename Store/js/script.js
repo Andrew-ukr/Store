@@ -652,22 +652,177 @@ window.addEventListener('DOMContentLoaded', () => {
     return a;
   }
 
-  function init() {
-    getNumOfGoods();
-    getGoods();
-    totalsum();
-    delCartElem(`.cart-item-hover`);
-    delCartElem(`.cart-item-big`);
-    changeQty(`.cart-item-hover`);
-    changeQty(`.cart-item-big`);
-    cartResultBlock();
-    checkCoupon();
+  function mailBody() {
+    let bodyGoods = '';
+    cart.forEach((elem, i) => {
+      bodyGoods += `
+      <div>
+        <img src="https://svityaz-centr.com/img/active/icon_active.jpg" alt="">
+        <p>Name : ${elem.title}</p>
+        <p>color : ${elem.color}</p>
+        <p>size : ${elem.size}</p>
+        <p>quantity : ${elem.number}</p>
+        <p>unit price : ${elem.price}</p>
+        <p>total price : ${elem.price.replace(/\D/, '') * elem.number} </p>
+        <br>
+        <br>
+      </div>
+      `;
+    });
+    let body = `
+    <p>Customer Name : ${document.querySelector('input#name').value}</p>
+    <p>e-mail : ${document.querySelector('input#mail').value}</p>
+    <p>phone : ${document.querySelector('input#phone').value}</p>
+    <div>
+      ${bodyGoods}
+    </div>
+    `;
+    return body;
+  }
 
+  function openSendForm() {
+    let chechOutBtn = document.querySelector('button.cart-result__total-item-btn');
+    chechOutBtn.addEventListener('click', () => {
+      document.querySelector('.modal__client-info').style.display = 'flex';
+      console.log(document.querySelector('button.input-submit').disabled);
+
+      // document.querySelector('button.input-submit').disabled = 'true';
+    });
+
+  }
+
+  function closwSendForm() {
+    let chechOutBtn = document.querySelector('button.input-cancel');
+    chechOutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('.modal__client-info').style.display = 'none';
+    });
+
+  }
+let validInput = false;
+
+  function validationInput() {
+    let nameInput = document.querySelector('input#name');
+    let emailInput = document.querySelector('input#mail');
+    let phoneInput = document.querySelector('input#phone');
+
+    nameInput.addEventListener('change', () => {
+      if (nameInput.value === '') {
+        nameInput.style.cssText = `
+        box-shadow: 0 0 5px 5px rgb(234, 154, 157);
+        `;
+        validInput = false;
+        console.log(validInput);
+      } else {
+        nameInput.style.cssText = `
+        box-shadow: unset;
+        `;
+        validInput = true;
+        console.log(validInput);
+
+      }
+    });
+
+    emailInput.addEventListener('change', () => {
+      let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      if (reg.test(emailInput.value) === false) {
+        emailInput.style.cssText = `
+        box-shadow: 0 0 5px 5px rgb(234, 154, 157);
+        `;
+        validInput = false;
+        console.log(validInput);
+
+      } else {
+        emailInput.style.cssText = `
+        box-shadow: unset;
+        `;
+        validInput = true;
+        console.log(validInput);
+      }
+    });
+
+    phoneInput.addEventListener('change', () => {
+      let reg = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      if (reg.test(phoneInput.value) === false) {
+        phoneInput.style.cssText = `
+        box-shadow: 0 0 5px 5px rgb(234, 154, 157);
+        `;
+        validInput = false;
+        console.log(validInput);
+
+      } else {
+        phoneInput.style.cssText = `
+        box-shadow: unset;
+        `;
+        validInput = true;
+console.log(validInput);
+      }
+    });
+
+  }
+
+  function sendForm(params) {
+    let submitBtn = document.querySelector('button.input-submit');
+    submitBtn.addEventListener('click', (e) => {
+
+      e.preventDefault();
+      let form = document.querySelector('form.modal__client-form');
+      form.classList.add('loading');
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "dzonlennon25@gmail.com",
+        Password: "dqwrkwkturmbrwib",
+        To: 'dzonlennon25@gmail.com',
+        From: "dzonlennon25@gmail.com",
+        Subject: "Order",
+        Body: mailBody(),
+      }).then(() => {
+        form.classList.remove('loading');
+        form.classList.add('sucsses');
+        setTimeout(() => {
+          form.classList.remove('sucsses');
+          document.querySelector('.modal__client-info').style.display = 'none';
+          cart = [];
+          localStorage.setItem('cartItems', JSON.stringify(cart));
+          init();
+        }, 2000);
+      }).catch(() => {
+        form.classList.remove('loading');
+        form.classList.add('error');
+        setTimeout(() => {
+          form.classList.remove('error');
+        }, 2000);
+      }).finally(() => {
+        form.reset();
+      });
+    });
+  }
+
+  function init() {
+    try {
+      getNumOfGoods();
+      getGoods();
+      totalsum();
+      delCartElem(`.cart-item-hover`);
+      delCartElem(`.cart-item-big`);
+      changeQty(`.cart-item-hover`);
+      changeQty(`.cart-item-big`);
+      cartResultBlock();
+      checkCoupon();
+      validationInput();
+
+
+      openSendForm();
+      closwSendForm();
+      sendForm();
+    } catch (error) {
+
+    }
   }
 
   cartData.forEach(item => {
     item.addEventListener('click', (e) => {
-      const addToCartBtn = item.querySelector(`[data-cart="add"]`);
+      // const addToCartBtn = item.querySelector(`[data-cart="add"]`);
       const goodsTitle = item.querySelector(`[data-cart="title"]`);
       const goodsPrice = item.querySelector(`[data-cart="price"]`);
       const goodsSize = item.querySelector(`[data-cart="size"]`);
@@ -1158,6 +1313,26 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });;
 // range-slide
+
+window.addEventListener('DOMContentLoaded', () => {
+  // let submitBtn = document.querySelector('button.input-submit');
+
+  // submitBtn.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   Email.send({
+  //     Host : "smtp.gmail.com",
+  //     Username : "dzonlennon25@gmail.com",
+  //     Password : "dqwrkwkturmbrwib",
+  //     To : 'dzonlennon25@gmail.com',
+  //     From : "dzonlennon25@gmail.com",
+  //     Subject : "Order",
+  //     Body : ``,
+  // }).then(
+  //   message => alert(message)
+  // );
+  // });
+});;
+// _send-email
 
 
 

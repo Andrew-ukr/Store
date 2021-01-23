@@ -104,8 +104,42 @@
   <div class="modal__cart-massage">
   </div>
 
+  <div class="modal__client-info">
+    <form class="modal__client-form" method="POST">
+      <div class="input-wrapper">
+        <label class="input-label" for="name">Name:</label>
+        <input class="input" type="text" name="name" id="name" placeholder="Your name">
+      </div>
+
+      <div class="input-wrapper">
+        <label class="input-label" for="mail">E-mail:</label>
+        <input class="input" type="email" name="mail" id="mail" placeholder="Your e-mail">
+      </div>
+
+      <div class="input-wrapper">
+        <label class="input-label" for="phone">Phone:</label>
+        <input class="input" type="tel" name="phone" id="phone" placeholder="Your phone">
+      </div>
+
+      <div class="input-wrapper">
+        <input class="input-checkbox" type="checkbox" name="checkbox" id="checkbox" checked>
+        <label class="input-label" for="checkbox">Lorem ipsum, dolor sit amet.</label>
+      </div>
+
+      <div class="input-btns-wrapper">
+        <button class="cart-hover__btn input-cancel">cancel</button>
+        <button class="cart-hover__btn input-submit" type="submit">submit</button>
+      </div>
+    </form>
+
+
+
+
+  </div>
+
   <a href="#to-top" class="to-top-btn">
   </a>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="./js/script.js"></script>
 
 </body>

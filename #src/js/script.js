@@ -42,5 +42,8 @@
 @@include('./_to-top-btn.js');
 // range-slide
 
+@@include('./_send-email.js');
+// _send-email
+
 
 
