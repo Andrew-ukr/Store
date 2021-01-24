@@ -393,7 +393,7 @@ window.addEventListener('DOMContentLoaded', () => {
           Host: "smtp.gmail.com",
           Username: "dzonlennon25@gmail.com",
           Password: "dqwrkwkturmbrwib",
-          To: `${emailInput.value}, pashulyaand@gmail.com`,
+          To: `${emailInput.value}, dzonlennon25@gmail.com`,
           From: "dzonlennon25@gmail.com",
           Subject: "Order",
           Body: mailBody(),
