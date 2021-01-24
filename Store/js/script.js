@@ -673,7 +673,7 @@ window.addEventListener('DOMContentLoaded', () => {
       <tr style="background-color: rgba(0, 0, 0, 0.05);">
           <td style="border: 1px solid #dcdfe0;"><img style="
           width: 100px;
-          height: 70px;" src="https://svityaz-centr.com/img/active/icon_active.jpg" alt=""></td>
+          height: 70px;" src="https://andrew-ukr.github.io/Store/Store/${elem.imgSmallWebp}" alt=""></td>
           <td style="border: 1px solid #dcdfe0;">${elem.title}</td>
           <td style="border: 1px solid #dcdfe0;">${elem.size}</td>
           <td style="border: 1px solid #dcdfe0;">${elem.color}</td>
