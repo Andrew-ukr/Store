@@ -440,6 +440,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const hoverCart = document.querySelector(`[data-cart="hover-cart"]`);
   const mainCart = document.querySelector(`[data-cart="main-cart"]`);
   const totalSum = document.querySelectorAll(`[data-cart="total"]`);
+  let nameInput = document.querySelector('input#name');
+  let emailInput = document.querySelector('input#mail');
+  let phoneInput = document.querySelector('input#phone');
+  let checkboxInput = document.querySelector('input.input-checkbox');
+  let totalProdPrice = 0;
   let cart = [];
   if (localStorage.getItem('cartItems')) {
     cart = JSON.parse(localStorage.getItem('cartItems'));
@@ -562,6 +567,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     totalSum.forEach(item => {
       item.innerText = `$${total.toFixed(2)}`;
+      totalProdPrice = item.innerText;
     });
   }
 
@@ -654,27 +660,51 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function mailBody() {
     let bodyGoods = '';
-    cart.forEach((elem, i) => {
+    cart.forEach(elem => {
       bodyGoods += `
-      <div>
-        <img src="https://svityaz-centr.com/img/active/icon_active.jpg" alt="">
-        <p>Name : ${elem.title}</p>
-        <p>color : ${elem.color}</p>
-        <p>size : ${elem.size}</p>
-        <p>quantity : ${elem.number}</p>
-        <p>unit price : ${elem.price}</p>
-        <p>total price : ${elem.price.replace(/\D/, '') * elem.number} </p>
-        <br>
-        <br>
-      </div>
+      <tr style="background-color: rgba(0, 0, 0, 0.05);">
+          <td style="border: 1px solid #dcdfe0;"><img style="
+          width: 100px;
+          height: 70px;" src="https://svityaz-centr.com/img/active/icon_active.jpg" alt=""></td>
+          <td style="border: 1px solid #dcdfe0;">${elem.title}</td>
+          <td style="border: 1px solid #dcdfe0;">${elem.size}</td>
+          <td style="border: 1px solid #dcdfe0;">${elem.color}</td>
+          <td style="border: 1px solid #dcdfe0;">${elem.number}</td>
+          <td style="border: 1px solid #dcdfe0;">${elem.price}</td>
+          <td style="border: 1px solid #dcdfe0;">$${elem.price.replace(/\D/, '') * elem.number}</td>
+      </tr>
       `;
     });
     let body = `
-    <p>Customer Name : ${document.querySelector('input#name').value}</p>
-    <p>e-mail : ${document.querySelector('input#mail').value}</p>
-    <p>phone : ${document.querySelector('input#phone').value}</p>
+    <p style="font-size:15px;font-weight: 700;background-color: #d7e3fc;width: fit-content; ">Customer Name : ${document.querySelector('input#name').value}</p>
+    <p style="font-size:15px;font-weight: 700;background-color: #d7e3fc; width: fit-content;">E-mail : ${document.querySelector('input#mail').value}</p>
+    <p style="font-size:15px;font-weight: 700;background-color: #d7e3fc; width: fit-content;">Phone : ${document.querySelector('input#phone').value}</p>
     <div>
+    <table style="	width: 100%;
+    border-collapse:collapse;
+    border-spacing:0;
+    height: auto;">
+    
+      <tr style="font-size:13px;color:#000000;font-weight: 700;background-color: rgba(0, 0, 0, 0.3);">
+          <td>Img</td>
+          <td>Product name</td>
+          <td>Size</td>
+          <td>Color</td>
+          <td>Quantity</td>
+          <td>Unit price</td>
+          <td>Price</td>
+      </tr>
       ${bodyGoods}
+      <tr style="font-size:13px;color:#000000;font-weight: 700;background-color: rgba(0, 0, 0, 0.3);">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total price</td>
+        <td>${totalProdPrice}</td>
+      </tr>
+      </table>
     </div>
     `;
     return body;
@@ -685,24 +715,20 @@ window.addEventListener('DOMContentLoaded', () => {
     chechOutBtn.addEventListener('click', () => {
       document.querySelector('.modal__client-info').style.display = 'flex';
     });
-
+    closeSendForm();
+    validationInput();
+    sendForm();
   }
 
-  function closwSendForm() {
+  function closeSendForm() {
     let chechOutBtn = document.querySelector('button.input-cancel');
     chechOutBtn.addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('.modal__client-info').style.display = 'none';
     });
-
   }
-  let nameInput = document.querySelector('input#name');
-  let emailInput = document.querySelector('input#mail');
-  let phoneInput = document.querySelector('input#phone');
-  let checkboxInput = document.querySelector('input.input-checkbox');
 
   function validationInput() {
-
     nameInput.addEventListener('change', () => {
       if (nameInput.value === '') {
         nameInput.style.cssText = `
@@ -740,9 +766,9 @@ window.addEventListener('DOMContentLoaded', () => {
         `;
       }
     });
-    
+
     checkboxInput.addEventListener('change', () => {
-      if (!checkboxInput.checked)  {
+      if (!checkboxInput.checked) {
         checkboxInput.style.cssText = `
         box-shadow: 0 0 5px 5px rgb(234, 154, 157);
         `;
@@ -752,14 +778,13 @@ window.addEventListener('DOMContentLoaded', () => {
         `;
       }
     });
-
   }
 
-  function sendForm(params) {
+  function sendForm() {
     let submitBtn = document.querySelector('button.input-submit');
     submitBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      
+
       let form = document.querySelector('form.modal__client-form');
       let inputForm = form.querySelectorAll('input');
       let checkboxInput = form.querySelector('input.input-checkbox');
@@ -789,11 +814,7 @@ window.addEventListener('DOMContentLoaded', () => {
         `;
       }
 
-
       if (counter === 0) {
-        checkboxInput.style.cssText = `
-        unset;
-        `;
         form.classList.add('loading');
         Email.send({
           Host: "smtp.gmail.com",
@@ -839,12 +860,8 @@ window.addEventListener('DOMContentLoaded', () => {
       changeQty(`.cart-item-big`);
       cartResultBlock();
       checkCoupon();
-      validationInput();
-
-
       openSendForm();
-      closwSendForm();
-      sendForm();
+
     } catch (error) {
 
     }

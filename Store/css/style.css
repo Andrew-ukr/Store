@@ -3725,12 +3725,12 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 270px;
+  width: 320px;
   -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
           box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   background-color: #ffffff;
-  padding: 20px 10px;
+  padding: 20px 20px;
   overflow: hidden;
   z-index: 2;
 }
@@ -3760,7 +3760,7 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  content: 'sucsses';
+  content: 'Thank you for ordering. We will contact you soon';
   width: 100%;
   height: 100%;
   top: 0;
@@ -4207,6 +4207,11 @@ input[type="range"]:nth-child(2)::-webkit-slider-thumb:active {
 
   .goods__color-item + .goods__color-item {
     margin-left: 20px;
+  }
+
+  .modal__client-form {
+    width: 500px;
+    padding: 35px 30px;
   }
 }
 
