@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const cartData = document.querySelectorAll(`[data-cart="data"]`);
-  const numberOfGoods = document.querySelector(`[data-cart="numberOfGoods"]`);
-  const hoverCart = document.querySelector(`[data-cart="hover-cart"]`);
-  const mainCart = document.querySelector(`[data-cart="main-cart"]`);
-  const totalSum = document.querySelectorAll(`[data-cart="total"]`);
+  let cartData = document.querySelectorAll(`[data-cart="data"]`);
+  let numberOfGoods = document.querySelector(`[data-cart="numberOfGoods"]`);
+  let hoverCart = document.querySelector(`[data-cart="hover-cart"]`);
+  let mainCart = document.querySelector(`[data-cart="main-cart"]`);
+  let totalSum = document.querySelectorAll(`[data-cart="total"]`);
   let nameInput = document.querySelector('input#name');
   let emailInput = document.querySelector('input#mail');
   let phoneInput = document.querySelector('input#phone');
@@ -162,16 +162,24 @@ window.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', (e) => {
           if (e.target && e.target.classList.contains('cart-item__quantity-plus')) {
             cart[i].number = +cart[i].number + 1;
-            localStorage.setItem('cartItems', JSON.stringify(cart));
-            init();
           } else if ((e.target && e.target.classList.contains('cart-item__quantity-minus'))) {
             cart[i].number = +cart[i].number - 1;
             if (cart[i].number < 1) {
               cart[i].number = 1;
             }
-            localStorage.setItem('cartItems', JSON.stringify(cart));
-            init();
           }
+          // console.log(cart[i].number);
+          // localStorage.setItem('cartItems', JSON.stringify(cart));
+          // init();
+          getNumOfGoods();
+          getGoods();
+          totalsum();
+          delCartElem(`.cart-item-hover`);
+          delCartElem(`.cart-item-big`);
+          changeQty(`.cart-item-hover`);
+          changeQty(`.cart-item-big`);
+          cartResultBlock();
+          checkCoupon();
         });
       });
     } catch (error) {
@@ -278,10 +286,10 @@ window.addEventListener('DOMContentLoaded', () => {
     let chechOutBtn = document.querySelector('button.cart-result__total-item-btn');
     chechOutBtn.addEventListener('click', () => {
       document.querySelector('.modal__client-info').style.display = 'flex';
+      closeSendForm();
+      validationInput();
+      sendForm();
     });
-    closeSendForm();
-    validationInput();
-    sendForm();
   }
 
   function closeSendForm() {
@@ -353,6 +361,7 @@ window.addEventListener('DOMContentLoaded', () => {
       let inputForm = form.querySelectorAll('input');
       let checkboxInput = form.querySelector('input.input-checkbox');
       let counter = 0;
+      let sendingCounter = 0;
 
       inputForm.forEach(elem => {
         if (elem.style.boxShadow === `rgb(234, 154, 157) 0px 0px 5px 5px` || elem.value === '') {
@@ -378,17 +387,19 @@ window.addEventListener('DOMContentLoaded', () => {
         `;
       }
 
-      if (counter === 0) {
+      if (counter === 0 && sendingCounter === 0) {
         form.classList.add('loading');
         Email.send({
           Host: "smtp.gmail.com",
           Username: "dzonlennon25@gmail.com",
           Password: "dqwrkwkturmbrwib",
-          To: 'dzonlennon25@gmail.com',
+          To: emailInput.value,
           From: "dzonlennon25@gmail.com",
           Subject: "Order",
           Body: mailBody(),
         }).then(() => {
+          sendingCounter++;
+          console.log(sendingCounter);
           form.classList.remove('loading');
           form.classList.add('sucsses');
           setTimeout(() => {
@@ -424,8 +435,6 @@ window.addEventListener('DOMContentLoaded', () => {
       changeQty(`.cart-item-big`);
       cartResultBlock();
       checkCoupon();
-      openSendForm();
-
     } catch (error) {
 
     }
@@ -475,4 +484,5 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   init();
+  openSendForm();
 });
