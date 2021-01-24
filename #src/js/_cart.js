@@ -393,7 +393,7 @@ window.addEventListener('DOMContentLoaded', () => {
           Host: "smtp.gmail.com",
           Username: "dzonlennon25@gmail.com",
           Password: "dqwrkwkturmbrwib",
-          To: emailInput.value,
+          To: `${emailInput.value}, pashulyaand@gmail.com`,
           From: "dzonlennon25@gmail.com",
           Subject: "Order",
           Body: mailBody(),
@@ -425,19 +425,16 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function init() {
-    try {
-      getNumOfGoods();
-      getGoods();
-      totalsum();
-      delCartElem(`.cart-item-hover`);
-      delCartElem(`.cart-item-big`);
-      changeQty(`.cart-item-hover`);
-      changeQty(`.cart-item-big`);
-      cartResultBlock();
-      checkCoupon();
-    } catch (error) {
+    getNumOfGoods();
+    getGoods();
+    totalsum();
+    delCartElem(`.cart-item-hover`);
+    delCartElem(`.cart-item-big`);
+    changeQty(`.cart-item-hover`);
+    changeQty(`.cart-item-big`);
+    cartResultBlock();
+    checkCoupon();
 
-    }
   }
 
   cartData.forEach(item => {
@@ -483,6 +480,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  init();
-  openSendForm();
+  try {
+    init();
+    openSendForm();
+  } catch (error) {
+
+  }
 });
